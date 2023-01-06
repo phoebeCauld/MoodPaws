@@ -13,6 +13,7 @@ protocol MainRouter {
 
 protocol IRouter: MainRouter {
     func showInitialVC()
+    func showMainPageVC()
     func popToRoot()
 }
 
@@ -33,6 +34,12 @@ class Router: IRouter{
         }
     }
     
+    func showMainPageVC() {
+        if let navigationController = navigationController {
+            guard let mainPageVC = assemblyBuilder?.createMainPageVC(router: self) else { return }
+            navigationController.viewControllers = [mainPageVC]
+        }
+    }
 
     func popToRoot() {
         if let navigationController = navigationController {

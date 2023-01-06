@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4BFD6606BCCFEFDD7277AF59 /* Pods_MoodPaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F717829FF3733FA4A583B965 /* Pods_MoodPaws.framework */; };
 		A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C6296558F600FAA669 /* AppDelegate.swift */; };
 		A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C8296558F600FAA669 /* SceneDelegate.swift */; };
 		A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4CA296558F600FAA669 /* InitialViewController.swift */; };
@@ -19,12 +20,15 @@
 		A630D4E72965666900FAA669 /* InitialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4E62965666900FAA669 /* InitialModel.swift */; };
 		A630D6DA2965745700FAA669 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D6D92965745700FAA669 /* Colors.swift */; };
 		A630D7D42965866800FAA669 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7D32965866800FAA669 /* Extensions.swift */; };
-		A630D7D62965A4EE00FAA669 /* PetSelectorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7D52965A4EE00FAA669 /* PetSelectorCollectionView.swift */; };
-		A630D7D82965AAD100FAA669 /* PetSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7D72965AAD100FAA669 /* PetSelectorCell.swift */; };
-		A630D7DA2965C4E200FAA669 /* PetSelectorWithAnimatinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7D92965C4E200FAA669 /* PetSelectorWithAnimatinView.swift */; };
+		A630D7E4296816E700FAA669 /* PetSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7E3296816E700FAA669 /* PetSelectorView.swift */; };
+		A630D7F32968257600FAA669 /* hamster.json in Resources */ = {isa = PBXBuildFile; fileRef = A630D7EE2968257600FAA669 /* hamster.json */; };
+		A630D7F52968257600FAA669 /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = A630D7F02968257600FAA669 /* cat.json */; };
+		A630D7F92968290000FAA669 /* dog.json in Resources */ = {isa = PBXBuildFile; fileRef = A630D7F82968290000FAA669 /* dog.json */; };
+		A630D7FC296830A300FAA669 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7FB296830A300FAA669 /* MainPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08B5C4AD7DE834D095FDDEE3 /* Pods-MoodPaws.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodPaws.release.xcconfig"; path = "Target Support Files/Pods-MoodPaws/Pods-MoodPaws.release.xcconfig"; sourceTree = "<group>"; };
 		A630D4C3296558F600FAA669 /* MoodPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A630D4C6296558F600FAA669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A630D4C8296558F600FAA669 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +43,13 @@
 		A630D4E62965666900FAA669 /* InitialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialModel.swift; sourceTree = "<group>"; };
 		A630D6D92965745700FAA669 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A630D7D32965866800FAA669 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		A630D7D52965A4EE00FAA669 /* PetSelectorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSelectorCollectionView.swift; sourceTree = "<group>"; };
-		A630D7D72965AAD100FAA669 /* PetSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSelectorCell.swift; sourceTree = "<group>"; };
-		A630D7D92965C4E200FAA669 /* PetSelectorWithAnimatinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSelectorWithAnimatinView.swift; sourceTree = "<group>"; };
+		A630D7E3296816E700FAA669 /* PetSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSelectorView.swift; sourceTree = "<group>"; };
+		A630D7EE2968257600FAA669 /* hamster.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = hamster.json; sourceTree = "<group>"; };
+		A630D7F02968257600FAA669 /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat.json; sourceTree = "<group>"; };
+		A630D7F82968290000FAA669 /* dog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dog.json; sourceTree = "<group>"; };
+		A630D7FB296830A300FAA669 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		CCAA4ABA442B64643C7432E7 /* Pods-MoodPaws.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodPaws.debug.xcconfig"; path = "Target Support Files/Pods-MoodPaws/Pods-MoodPaws.debug.xcconfig"; sourceTree = "<group>"; };
+		F717829FF3733FA4A583B965 /* Pods_MoodPaws.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoodPaws.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +57,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BFD6606BCCFEFDD7277AF59 /* Pods_MoodPaws.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5ACEBEEEF867AAC8FC2EF1C4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA4ABA442B64643C7432E7 /* Pods-MoodPaws.debug.xcconfig */,
+				08B5C4AD7DE834D095FDDEE3 /* Pods-MoodPaws.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		A630D4BA296558F600FAA669 = {
 			isa = PBXGroup;
 			children = (
 				A630D4C5296558F600FAA669 /* MoodPaws */,
 				A630D4C4296558F600FAA669 /* Products */,
+				5ACEBEEEF867AAC8FC2EF1C4 /* Pods */,
+				AF1B0CAE6BE40F7A5282404C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +98,7 @@
 				A630D4C6296558F600FAA669 /* AppDelegate.swift */,
 				A630D4C8296558F600FAA669 /* SceneDelegate.swift */,
 				A630D4E42965656000FAA669 /* Router.swift */,
+				A630D7FA2968308800FAA669 /* MainPageModule */,
 				A630D4E12965648100FAA669 /* InitialModule */,
 				A630D4D2296558F700FAA669 /* Assets.xcassets */,
 				A630D4D4296558F700FAA669 /* LaunchScreen.storyboard */,
@@ -94,9 +115,7 @@
 				A630D4CA296558F600FAA669 /* InitialViewController.swift */,
 				A630D4E22965649E00FAA669 /* InitialViewModel.swift */,
 				A630D4E62965666900FAA669 /* InitialModel.swift */,
-				A630D7D92965C4E200FAA669 /* PetSelectorWithAnimatinView.swift */,
-				A630D7D52965A4EE00FAA669 /* PetSelectorCollectionView.swift */,
-				A630D7D72965AAD100FAA669 /* PetSelectorCell.swift */,
+				A630D7E3296816E700FAA669 /* PetSelectorView.swift */,
 			);
 			path = InitialModule;
 			sourceTree = "<group>";
@@ -104,10 +123,37 @@
 		A630D6D8296573E300FAA669 /* Resoursers */ = {
 			isa = PBXGroup;
 			children = (
+				A630D7ED2968256200FAA669 /* LottieAnimations */,
 				A630D6D92965745700FAA669 /* Colors.swift */,
 				A630D7D32965866800FAA669 /* Extensions.swift */,
 			);
 			path = Resoursers;
+			sourceTree = "<group>";
+		};
+		A630D7ED2968256200FAA669 /* LottieAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				A630D7F02968257600FAA669 /* cat.json */,
+				A630D7F82968290000FAA669 /* dog.json */,
+				A630D7EE2968257600FAA669 /* hamster.json */,
+			);
+			path = LottieAnimations;
+			sourceTree = "<group>";
+		};
+		A630D7FA2968308800FAA669 /* MainPageModule */ = {
+			isa = PBXGroup;
+			children = (
+				A630D7FB296830A300FAA669 /* MainPageViewController.swift */,
+			);
+			path = MainPageModule;
+			sourceTree = "<group>";
+		};
+		AF1B0CAE6BE40F7A5282404C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F717829FF3733FA4A583B965 /* Pods_MoodPaws.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,9 +163,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A630D4DA296558F700FAA669 /* Build configuration list for PBXNativeTarget "MoodPaws" */;
 			buildPhases = (
+				E7E1633375731D41D480BA80 /* [CP] Check Pods Manifest.lock */,
 				A630D4BF296558F600FAA669 /* Sources */,
 				A630D4C0296558F600FAA669 /* Frameworks */,
 				A630D4C1296558F600FAA669 /* Resources */,
+				407C0C135B5F9A8C64FBC969 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -146,7 +194,7 @@
 				};
 			};
 			buildConfigurationList = A630D4BE296558F600FAA669 /* Build configuration list for PBXProject "MoodPaws" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -169,11 +217,56 @@
 			buildActionMask = 2147483647;
 			files = (
 				A630D4D6296558F700FAA669 /* LaunchScreen.storyboard in Resources */,
+				A630D7F32968257600FAA669 /* hamster.json in Resources */,
 				A630D4D3296558F700FAA669 /* Assets.xcassets in Resources */,
+				A630D7F92968290000FAA669 /* dog.json in Resources */,
+				A630D7F52968257600FAA669 /* cat.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		407C0C135B5F9A8C64FBC969 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoodPaws/Pods-MoodPaws-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MoodPaws/Pods-MoodPaws-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MoodPaws/Pods-MoodPaws-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7E1633375731D41D480BA80 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoodPaws-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A630D4BF296558F600FAA669 /* Sources */ = {
@@ -181,16 +274,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				A630D4E72965666900FAA669 /* InitialModel.swift in Sources */,
-				A630D7D62965A4EE00FAA669 /* PetSelectorCollectionView.swift in Sources */,
-				A630D7D82965AAD100FAA669 /* PetSelectorCell.swift in Sources */,
 				A630D6DA2965745700FAA669 /* Colors.swift in Sources */,
 				A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */,
 				A630D4E0296563F400FAA669 /* AssemblyBuilder.swift in Sources */,
 				A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */,
 				A630D7D42965866800FAA669 /* Extensions.swift in Sources */,
+				A630D7FC296830A300FAA669 /* MainPageViewController.swift in Sources */,
+				A630D7E4296816E700FAA669 /* PetSelectorView.swift in Sources */,
 				A630D4E52965656000FAA669 /* Router.swift in Sources */,
 				A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */,
-				A630D7DA2965C4E200FAA669 /* PetSelectorWithAnimatinView.swift in Sources */,
 				A630D4D1296558F600FAA669 /* MoodPaws.xcdatamodeld in Sources */,
 				A630D4E32965649E00FAA669 /* InitialViewModel.swift in Sources */,
 			);
@@ -326,6 +418,7 @@
 		};
 		A630D4DB296558F700FAA669 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCAA4ABA442B64643C7432E7 /* Pods-MoodPaws.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -357,6 +450,7 @@
 		};
 		A630D4DC296558F700FAA669 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08B5C4AD7DE834D095FDDEE3 /* Pods-MoodPaws.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

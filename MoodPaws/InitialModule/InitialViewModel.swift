@@ -8,8 +8,10 @@
 import Foundation
 
 protocol IInitialViewModel: AnyObject {
-    func showNextPet(at number: Int) -> String
+    func getNextPet(at number: Int) -> String
     func didSelectPetSupport(at position: Int)
+    func addPetName(_ name: String)
+    func pushMainPageViewController()
 }
 
 final class InitialViewModel: IInitialViewModel {
@@ -33,9 +35,17 @@ final class InitialViewModel: IInitialViewModel {
     func didSelectPetSupport(at position: Int) {
         print("Select as a pet: \(model.pets[position].kindOfPet)")
     }
+    
+    func addPetName(_ name: String) {
+        print(name)
+    }
 
-    func showNextPet(at number: Int) -> String {
+    func getNextPet(at number: Int) -> String {
         return state.petsImage[number]
+    }
+
+    func pushMainPageViewController() {
+        router.showMainPageVC()
     }
 }
 
