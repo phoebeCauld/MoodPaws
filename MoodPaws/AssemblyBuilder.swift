@@ -9,6 +9,7 @@ import UIKit
 
 protocol AssemblyBuilder {
     func createInitialVC(router: IRouter) -> UIViewController
+    func createMainPageVC(router: IRouter) -> UIViewController
 }
 
 final class AssemblyModuleBuilder: AssemblyBuilder {
@@ -16,5 +17,9 @@ final class AssemblyModuleBuilder: AssemblyBuilder {
         let model = InitialModel()
         let viewModel = InitialViewModel(router: router, model: model)
         return InitialViewController(viewModel: viewModel)
+    }
+
+    func createMainPageVC(router: IRouter) -> UIViewController {
+        return MainPageViewController()
     }
 }

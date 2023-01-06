@@ -8,10 +8,8 @@
 import UIKit
 
 class InitialViewController: UIViewController {
-
-    private var nameCreatorBottomConstraint: NSLayoutConstraint?
-
     private let blurView: UIVisualEffectView = .init(effect: UIBlurEffect.init(style: .regular))
+
     private let titleLable: UILabel = {
         let label = UILabel()
         label.text = "Chose your support pet"
@@ -39,7 +37,10 @@ class InitialViewController: UIViewController {
 
     private let nameSelectButton: UIButton = {
         let button = UIButton()
-        button.setImage(.init(systemName: "checked"), for: .normal)
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 20, weight: .black)
+        let image = UIImage(systemName: "checkmark")?.withConfiguration(imageConfig)
+        button.tintColor = .lightGray
+        button.setImage(image, for: .normal)
         button.isEnabled = false
         button.roundCorners(corners: .allCorners, radius: 20)
         button.backgroundColor = .purple
@@ -47,13 +48,11 @@ class InitialViewController: UIViewController {
         return button
     }()
     
-    private let petSelectorView: PetSelectorCollectionView = {
-            let petImageView = PetSelectorCollectionView()
-            petImageView.translatesAutoresizingMaskIntoConstraints = false
-    
-            return petImageView
-        }()
-
+    private let petSelectorView: PetSelectorView = {
+        let petSelectorView = PetSelectorView()
+        petSelectorView.translatesAutoresizingMaskIntoConstraints = false
+        return petSelectorView
+    }()
 
     private lazy var petImagePageControl: UIPageControl = {
         let pageControl = UIPageControl()
@@ -84,6 +83,7 @@ class InitialViewController: UIViewController {
         return stackView
     }()
 
+    private var nameCreatorBottomConstraint: NSLayoutConstraint?
     private var viewModel: IInitialViewModel
     
     init(viewModel: IInitialViewModel) {
@@ -95,28 +95,37 @@ class InitialViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    // MARK: Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
         addConstraints()
+        addKeyboardObservers()
         drawShape()
         
         guard let viewModel = viewModel as? InitialViewModel else { return }
         configureView(with: viewModel.state)
     }
-//
-//    override func viewWillLayoutSubviews() {
-//        super.viewWillLayoutSubviews()
-//
-//        addConstraints()
-//    }
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         blurView.frame = self.view.frame
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard nameTextField.isFirstResponder else { return }
+
+        nameTextField.resignFirstResponder()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        NotificationCenter.default.removeObserver(self)
     }
 
     private func setupView() {
@@ -137,42 +146,14 @@ class InitialViewController: UIViewController {
         ])
     
         blurView.alpha = 0
-        petSelectorView.viewDelegate = self
-        petSelectButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelectPetSupport)))
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
-                               as? NSValue)?.cgRectValue {
-            UIView.animate(withDuration: 0.3, delay: 0.1) {
-                self.blurView.alpha = 1
-                self.nameCreatorBottomConstraint?.constant = -keyboardSize.height
-                self.petSelectButton.isHidden = true
-                self.nameSelectorStackView.isHidden = false
-            }
-
-            view.layoutIfNeeded()
-        }
-    }
-    
-    @objc  func keyboardWillHide() {
-        self.nameCreatorBottomConstraint?.constant = -16
-        view.layoutIfNeeded()
-    }
-
-    @objc
-    private func didSelectPetSupport() {
-        viewModel.didSelectPetSupport(at: petImagePageControl.currentPage)
-
-        nameTextField.becomeFirstResponder()
+        petSelectorView.delegate = self
+        nameTextField.delegate = self
+        petSelectButton.addTarget(self, action: #selector(didSelectPetSupport), for: .touchUpInside)
+        nameSelectButton.addTarget(self, action: #selector(finishInitialisaiton), for: .touchUpInside)
     }
 
     private func configureView(with state: InitialModelViewState) {
-        petSelectorView.configure(with: state.petsImage)
+        petSelectorView.configure(with: state.petsImage.first ?? "")
         petImagePageControl.numberOfPages = state.pets.count
         nameSelectorStackView.isHidden = true
     }
@@ -209,8 +190,13 @@ class InitialViewController: UIViewController {
         ])
     }
 
-    private func drawShape() {
+    private func addKeyboardObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 
+    private func drawShape() {
         let path = UIBezierPath()
                 let x: CGFloat = UIScreen.main.bounds.size.width
 
@@ -239,18 +225,85 @@ class InitialViewController: UIViewController {
 
     @objc
     private func pageControlDidChangePage(_ sender: UIPageControl) {
-        let page = sender.currentPage
-        var frame: CGRect = self.petSelectorView.frame
-        frame.origin.x = frame.size.width * CGFloat(page)
-        frame.origin.y = 0
-       self.petSelectorView.scrollRectToVisible(frame, animated: true)
+        petSelectorView.configure(with: viewModel.getNextPet(at: sender.currentPage))
+    }
+
+    // MARK: keyboard activity
+
+    @objc
+    private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey]
+                               as? NSValue)?.cgRectValue {
+            UIView.animate(withDuration: 0.3, delay: 0.1) {
+                self.blurView.alpha = 1
+                self.nameCreatorBottomConstraint?.constant = -keyboardSize.height
+                self.petSelectButton.isHidden = true
+                self.nameSelectorStackView.isHidden = false
+            }
+
+            view.layoutIfNeeded()
+        }
+    }
+    
+    @objc
+    private func keyboardWillHide() {
+        self.nameCreatorBottomConstraint?.constant = -16
+        view.layoutIfNeeded()
+    }
+
+    @objc
+    private func didSelectPetSupport() {
+        viewModel.didSelectPetSupport(at: petImagePageControl.currentPage)
+
+        nameTextField.becomeFirstResponder()
+    }
+    
+    @objc
+    private func finishInitialisaiton() {
+        guard
+            let name = nameTextField.text,
+            !name.isEmpty else { return }
+        
+        viewModel.addPetName(name)
+        viewModel.pushMainPageViewController()
     }
 }
 
-extension InitialViewController: PetSelectorCollectionViewDelegate {
+// MARK: UITextFieldDelegate
+
+extension InitialViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        changeNameSelectButtonEnable(to: true)
+    }
+
+    private func changeNameSelectButtonEnable(to hasName: Bool) {
+        guard hasName && nameSelectButton.isEnabled != hasName else { return }
+
+        nameSelectButton.isEnabled = hasName
+        nameSelectButton.tintColor = .black
+    }
+}
+
+// MARK: PetSelectorWithAnimatinViewDelegate
+
+extension InitialViewController: PetSelectorViewDelegate {
     func pageControl(
-        _ collectionView: PetSelectorCollectionView,
-        curentPageDidChangeTo currentPageNumber: Int) {
-        petImagePageControl.currentPage = currentPageNumber
+        _ collectionView: PetSelectorView,
+        curentPageDidChangeTo pageAmount: Int
+    ) {
+        var newPage = 0
+        let suggestionPageNumber = petImagePageControl.currentPage + pageAmount
+
+        switch suggestionPageNumber {
+        case let page where page < 0:
+            newPage = petImagePageControl.numberOfPages - 1
+        case let page where page > petImagePageControl.numberOfPages - 1:
+            newPage = 0
+        default:
+            newPage = suggestionPageNumber
+        }
+
+        petImagePageControl.currentPage = newPage
+        petSelectorView.configure(with: viewModel.getNextPet(at: petImagePageControl.currentPage))
     }
 }
