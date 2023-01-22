@@ -11,6 +11,6 @@ final class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        //let pet = CoreDataManager.shared.fetchPetSupport()
     }
 }
