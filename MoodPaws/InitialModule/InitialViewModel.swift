@@ -1,10 +1,3 @@
-//
-//  InitialViewModel.swift
-//  MoodPaws
-//
-//  Created by Perova Viktoriya Dmitrievna on 04.01.2023.
-//
-
 import Foundation
 
 protocol IInitialViewModel: AnyObject {
@@ -23,6 +16,7 @@ final class InitialViewModel: IInitialViewModel {
     }
     private var router: IRouter
     private var model: InitialModel
+    private var choosenPetSupport = PetSupport(context: CoreDataManager.shared.context)
 
     init(
         router: IRouter,
@@ -33,11 +27,15 @@ final class InitialViewModel: IInitialViewModel {
     }
 
     func didSelectPetSupport(at position: Int) {
-        print("Select as a pet: \(model.pets[position].kindOfPet)")
+        let pet = state.pets[position]
+        choosenPetSupport.petSupport = pet.kindOfPet
+        choosenPetSupport.imageName = pet.imageName
+        choosenPetSupport.age = pet.age ?? 0
     }
     
     func addPetName(_ name: String) {
-        print(name)
+        choosenPetSupport.name = name
+        CoreDataManager.shared.saveData()
     }
 
     func getNextPet(at number: Int) -> String {
@@ -51,6 +49,6 @@ final class InitialViewModel: IInitialViewModel {
 
 
 struct InitialModelViewState {
-    let pets: [PetMock]
+    let pets: [Pet]
     let petsImage: [String]
 }

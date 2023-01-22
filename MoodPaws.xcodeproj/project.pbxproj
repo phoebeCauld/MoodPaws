@@ -17,7 +17,7 @@
 		A630D4E0296563F400FAA669 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4DF296563F400FAA669 /* AssemblyBuilder.swift */; };
 		A630D4E32965649E00FAA669 /* InitialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4E22965649E00FAA669 /* InitialViewModel.swift */; };
 		A630D4E52965656000FAA669 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4E42965656000FAA669 /* Router.swift */; };
-		A630D4E72965666900FAA669 /* InitialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4E62965666900FAA669 /* InitialModel.swift */; };
+		A630D4E72965666900FAA669 /* PetSupportModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4E62965666900FAA669 /* PetSupportModel.swift */; };
 		A630D6DA2965745700FAA669 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D6D92965745700FAA669 /* Colors.swift */; };
 		A630D7D42965866800FAA669 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7D32965866800FAA669 /* Extensions.swift */; };
 		A630D7E4296816E700FAA669 /* PetSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7E3296816E700FAA669 /* PetSelectorView.swift */; };
@@ -25,6 +25,9 @@
 		A630D7F52968257600FAA669 /* cat.json in Resources */ = {isa = PBXBuildFile; fileRef = A630D7F02968257600FAA669 /* cat.json */; };
 		A630D7F92968290000FAA669 /* dog.json in Resources */ = {isa = PBXBuildFile; fileRef = A630D7F82968290000FAA669 /* dog.json */; };
 		A630D7FC296830A300FAA669 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D7FB296830A300FAA669 /* MainPageViewController.swift */; };
+		A6A73148297CE54600F31F30 /* PetSupport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A73146297CE54600F31F30 /* PetSupport+CoreDataClass.swift */; };
+		A6A7314B297D513D00F31F30 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A7314A297D513D00F31F30 /* CoreDataManager.swift */; };
+		A6A7314D297D804A00F31F30 /* InitialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A7314C297D804A00F31F30 /* InitialModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,7 +43,7 @@
 		A630D4DF296563F400FAA669 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
 		A630D4E22965649E00FAA669 /* InitialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewModel.swift; sourceTree = "<group>"; };
 		A630D4E42965656000FAA669 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		A630D4E62965666900FAA669 /* InitialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialModel.swift; sourceTree = "<group>"; };
+		A630D4E62965666900FAA669 /* PetSupportModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSupportModel.swift; sourceTree = "<group>"; };
 		A630D6D92965745700FAA669 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		A630D7D32965866800FAA669 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A630D7E3296816E700FAA669 /* PetSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetSelectorView.swift; sourceTree = "<group>"; };
@@ -48,6 +51,9 @@
 		A630D7F02968257600FAA669 /* cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cat.json; sourceTree = "<group>"; };
 		A630D7F82968290000FAA669 /* dog.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = dog.json; sourceTree = "<group>"; };
 		A630D7FB296830A300FAA669 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
+		A6A73146297CE54600F31F30 /* PetSupport+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PetSupport+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A6A7314A297D513D00F31F30 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		A6A7314C297D804A00F31F30 /* InitialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialModel.swift; sourceTree = "<group>"; };
 		CCAA4ABA442B64643C7432E7 /* Pods-MoodPaws.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodPaws.debug.xcconfig"; path = "Target Support Files/Pods-MoodPaws/Pods-MoodPaws.debug.xcconfig"; sourceTree = "<group>"; };
 		F717829FF3733FA4A583B965 /* Pods_MoodPaws.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoodPaws.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -114,8 +120,8 @@
 			children = (
 				A630D4CA296558F600FAA669 /* InitialViewController.swift */,
 				A630D4E22965649E00FAA669 /* InitialViewModel.swift */,
-				A630D4E62965666900FAA669 /* InitialModel.swift */,
 				A630D7E3296816E700FAA669 /* PetSelectorView.swift */,
+				A6A7314C297D804A00F31F30 /* InitialModel.swift */,
 			);
 			path = InitialModule;
 			sourceTree = "<group>";
@@ -123,9 +129,11 @@
 		A630D6D8296573E300FAA669 /* Resoursers */ = {
 			isa = PBXGroup;
 			children = (
+				A6A73145297CE53000F31F30 /* PetSupportModel */,
 				A630D7ED2968256200FAA669 /* LottieAnimations */,
 				A630D6D92965745700FAA669 /* Colors.swift */,
 				A630D7D32965866800FAA669 /* Extensions.swift */,
+				A6A7314A297D513D00F31F30 /* CoreDataManager.swift */,
 			);
 			path = Resoursers;
 			sourceTree = "<group>";
@@ -146,6 +154,15 @@
 				A630D7FB296830A300FAA669 /* MainPageViewController.swift */,
 			);
 			path = MainPageModule;
+			sourceTree = "<group>";
+		};
+		A6A73145297CE53000F31F30 /* PetSupportModel */ = {
+			isa = PBXGroup;
+			children = (
+				A630D4E62965666900FAA669 /* PetSupportModel.swift */,
+				A6A73146297CE54600F31F30 /* PetSupport+CoreDataClass.swift */,
+			);
+			path = PetSupportModel;
 			sourceTree = "<group>";
 		};
 		AF1B0CAE6BE40F7A5282404C /* Frameworks */ = {
@@ -273,17 +290,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A630D4E72965666900FAA669 /* InitialModel.swift in Sources */,
+				A630D4E72965666900FAA669 /* PetSupportModel.swift in Sources */,
 				A630D6DA2965745700FAA669 /* Colors.swift in Sources */,
 				A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */,
+				A6A73148297CE54600F31F30 /* PetSupport+CoreDataClass.swift in Sources */,
 				A630D4E0296563F400FAA669 /* AssemblyBuilder.swift in Sources */,
 				A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */,
+				A6A7314D297D804A00F31F30 /* InitialModel.swift in Sources */,
 				A630D7D42965866800FAA669 /* Extensions.swift in Sources */,
 				A630D7FC296830A300FAA669 /* MainPageViewController.swift in Sources */,
 				A630D7E4296816E700FAA669 /* PetSelectorView.swift in Sources */,
 				A630D4E52965656000FAA669 /* Router.swift in Sources */,
 				A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */,
 				A630D4D1296558F600FAA669 /* MoodPaws.xcdatamodeld in Sources */,
+				A6A7314B297D513D00F31F30 /* CoreDataManager.swift in Sources */,
 				A630D4E32965649E00FAA669 /* InitialViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

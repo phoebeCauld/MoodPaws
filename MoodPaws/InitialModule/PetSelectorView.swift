@@ -26,6 +26,7 @@ final class PetSelectorView: UIView {
 
         addSubview(animatedView)
         animatedView.translatesAutoresizingMaskIntoConstraints = false
+
         addConstraints()
 
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipePicture))
