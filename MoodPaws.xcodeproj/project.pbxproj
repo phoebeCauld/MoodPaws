@@ -28,6 +28,12 @@
 		A6A73148297CE54600F31F30 /* PetSupport+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A73146297CE54600F31F30 /* PetSupport+CoreDataClass.swift */; };
 		A6A7314B297D513D00F31F30 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A7314A297D513D00F31F30 /* CoreDataManager.swift */; };
 		A6A7314D297D804A00F31F30 /* InitialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A7314C297D804A00F31F30 /* InitialModel.swift */; };
+		A6CB86D4298B7C41007451D7 /* BaseStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CB86D3298B7C41007451D7 /* BaseStackView.swift */; };
+		A6CBFABB29837A48007451D7 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFABA29837A48007451D7 /* MainPageViewModel.swift */; };
+		A6CBFABD29837A5A007451D7 /* MainPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFABC29837A5A007451D7 /* MainPageModel.swift */; };
+		A6CBFAC0298386C1007451D7 /* MoodCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFABF298386C1007451D7 /* MoodCalendarView.swift */; };
+		A6CBFAC2298386D6007451D7 /* CalendarStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFAC1298386D6007451D7 /* CalendarStateModel.swift */; };
+		A6CBFAC629839F9C007451D7 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFAC529839F9C007451D7 /* DayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +60,12 @@
 		A6A73146297CE54600F31F30 /* PetSupport+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PetSupport+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A6A7314A297D513D00F31F30 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		A6A7314C297D804A00F31F30 /* InitialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialModel.swift; sourceTree = "<group>"; };
+		A6CB86D3298B7C41007451D7 /* BaseStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStackView.swift; sourceTree = "<group>"; };
+		A6CBFABA29837A48007451D7 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		A6CBFABC29837A5A007451D7 /* MainPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageModel.swift; sourceTree = "<group>"; };
+		A6CBFABF298386C1007451D7 /* MoodCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCalendarView.swift; sourceTree = "<group>"; };
+		A6CBFAC1298386D6007451D7 /* CalendarStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStateModel.swift; sourceTree = "<group>"; };
+		A6CBFAC529839F9C007451D7 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		CCAA4ABA442B64643C7432E7 /* Pods-MoodPaws.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodPaws.debug.xcconfig"; path = "Target Support Files/Pods-MoodPaws/Pods-MoodPaws.debug.xcconfig"; sourceTree = "<group>"; };
 		F717829FF3733FA4A583B965 /* Pods_MoodPaws.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoodPaws.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,10 +141,10 @@
 		A630D6D8296573E300FAA669 /* Resoursers */ = {
 			isa = PBXGroup;
 			children = (
+				A6CBFAC72983A066007451D7 /* Extensions */,
 				A6A73145297CE53000F31F30 /* PetSupportModel */,
 				A630D7ED2968256200FAA669 /* LottieAnimations */,
 				A630D6D92965745700FAA669 /* Colors.swift */,
-				A630D7D32965866800FAA669 /* Extensions.swift */,
 				A6A7314A297D513D00F31F30 /* CoreDataManager.swift */,
 			);
 			path = Resoursers;
@@ -151,7 +163,10 @@
 		A630D7FA2968308800FAA669 /* MainPageModule */ = {
 			isa = PBXGroup;
 			children = (
+				A6CBFABE298386AC007451D7 /* Calendar */,
 				A630D7FB296830A300FAA669 /* MainPageViewController.swift */,
+				A6CBFABA29837A48007451D7 /* MainPageViewModel.swift */,
+				A6CBFABC29837A5A007451D7 /* MainPageModel.swift */,
 			);
 			path = MainPageModule;
 			sourceTree = "<group>";
@@ -163,6 +178,25 @@
 				A6A73146297CE54600F31F30 /* PetSupport+CoreDataClass.swift */,
 			);
 			path = PetSupportModel;
+			sourceTree = "<group>";
+		};
+		A6CBFABE298386AC007451D7 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				A6CBFABF298386C1007451D7 /* MoodCalendarView.swift */,
+				A6CBFAC1298386D6007451D7 /* CalendarStateModel.swift */,
+				A6CBFAC529839F9C007451D7 /* DayView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		A6CBFAC72983A066007451D7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A630D7D32965866800FAA669 /* Extensions.swift */,
+				A6CB86D3298B7C41007451D7 /* BaseStackView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AF1B0CAE6BE40F7A5282404C /* Frameworks */ = {
@@ -290,18 +324,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6CBFABB29837A48007451D7 /* MainPageViewModel.swift in Sources */,
 				A630D4E72965666900FAA669 /* PetSupportModel.swift in Sources */,
 				A630D6DA2965745700FAA669 /* Colors.swift in Sources */,
 				A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */,
 				A6A73148297CE54600F31F30 /* PetSupport+CoreDataClass.swift in Sources */,
 				A630D4E0296563F400FAA669 /* AssemblyBuilder.swift in Sources */,
 				A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */,
+				A6CBFAC629839F9C007451D7 /* DayView.swift in Sources */,
 				A6A7314D297D804A00F31F30 /* InitialModel.swift in Sources */,
 				A630D7D42965866800FAA669 /* Extensions.swift in Sources */,
 				A630D7FC296830A300FAA669 /* MainPageViewController.swift in Sources */,
 				A630D7E4296816E700FAA669 /* PetSelectorView.swift in Sources */,
+				A6CB86D4298B7C41007451D7 /* BaseStackView.swift in Sources */,
 				A630D4E52965656000FAA669 /* Router.swift in Sources */,
+				A6CBFABD29837A5A007451D7 /* MainPageModel.swift in Sources */,
 				A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */,
+				A6CBFAC2298386D6007451D7 /* CalendarStateModel.swift in Sources */,
+				A6CBFAC0298386C1007451D7 /* MoodCalendarView.swift in Sources */,
 				A630D4D1296558F600FAA669 /* MoodPaws.xcdatamodeld in Sources */,
 				A6A7314B297D513D00F31F30 /* CoreDataManager.swift in Sources */,
 				A630D4E32965649E00FAA669 /* InitialViewModel.swift in Sources */,
