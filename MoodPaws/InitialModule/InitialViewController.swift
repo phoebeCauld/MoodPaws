@@ -220,7 +220,6 @@ class InitialViewController: UIViewController {
             shapeLayer.fillColor = UIColor.purple.cgColor
 
             view.layer.addSublayer(shapeLayer)
-
     }
 
     @objc

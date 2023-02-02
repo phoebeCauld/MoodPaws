@@ -63,3 +63,20 @@ extension UIStackView {
         views.forEach{ self.addArrangedSubview($0)}
     }
 }
+
+
+extension DateFormatter {
+    static let weekdayDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+
+        return formatter
+    }()
+
+    static let onlyDayDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d"
+
+        return formatter
+    }()
+}
