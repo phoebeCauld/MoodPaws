@@ -2,11 +2,14 @@ import UIKit
 
 final class MainPageViewController: UIViewController {
     private let viewModel: IMainPageViewModel?
+    private var componentsFactory: IComponentsFactory
 
-    private let calendarView = MoodCalendarView()
+    private let topBackgroundView = UIView()
+    private lazy var calendarView = MoodCalendarView(componentsFactory: componentsFactory)
 
-    init(viewModel: IMainPageViewModel) {
+    init(viewModel: IMainPageViewModel, componentsFactory: IComponentsFactory) {
         self.viewModel = viewModel
+        self.componentsFactory = componentsFactory
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -22,7 +25,6 @@ final class MainPageViewController: UIViewController {
         view.backgroundColor = .white
 
         guard let viewModel = viewModel as? MainPageViewModel else { return }
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
         configureView(with: viewModel.state)
     }
     
@@ -34,8 +36,13 @@ final class MainPageViewController: UIViewController {
 
     private func setupVC() {
         view.addSubviews([
-            calendarView,
+            topBackgroundView,
         ])
+        
+        topBackgroundView.addSubview(calendarView)
+        
+        topBackgroundView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 50)
+        topBackgroundView.backgroundColor = .mpLightPurple
     }
 
     private func configureView(with state: MainPageViewState) {
@@ -43,10 +50,17 @@ final class MainPageViewController: UIViewController {
     }
 
     private func setupConstraints() {
+        topBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
-            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            topBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            topBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            topBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            topBackgroundView.heightAnchor.constraint(equalToConstant: 350),
+            
+            calendarView.topAnchor.constraint(equalTo: topBackgroundView.topAnchor, constant: 100),
+            calendarView.trailingAnchor.constraint(equalTo: topBackgroundView.trailingAnchor, constant: -16),
+            calendarView.leadingAnchor.constraint(equalTo: topBackgroundView.leadingAnchor, constant: 16),
         ])
     }
 }

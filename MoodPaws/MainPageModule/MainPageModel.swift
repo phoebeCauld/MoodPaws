@@ -58,15 +58,7 @@ extension MoodCalendarModel {
 }
 
 struct CalendarMock {
-    lazy var calendar = MoodCalendarModel(moods: [
-        .init(day: makeDay(plus: -3), moodOfTheDay: .joy),
-        .init(day: makeDay(plus: -2), moodOfTheDay: .anger),
-        .init(day: makeDay(plus: -1), moodOfTheDay: .stressfull),
-        .init(day: makeDay(plus: 0), moodOfTheDay: .inLove),
-        .init(day: makeDay(plus: 1), moodOfTheDay: .confused),
-        .init(day: makeDay(plus: 2), moodOfTheDay: nil),
-        .init(day: makeDay(plus: 3), moodOfTheDay: nil)
-    ])
+    lazy var calendar = MoodCalendarModel(moods: getCurrentWeek())
 
     func makeDay(plus days: Int) -> Date {
         var dayComponent    = DateComponents()
@@ -75,5 +67,25 @@ struct CalendarMock {
         let nextDate        = theCalendar.date(byAdding: dayComponent, to: Date())
 
         return nextDate ?? Date()
+    }
+
+    func getCurrentWeek() -> [MoodCalendarModel.MoodDay] {
+        var calendar = Calendar.current
+        calendar.firstWeekday = 2
+        let today = calendar.startOfDay(for: Date())
+        let todaysDayOfWeek = calendar.component(.weekday, from: today)
+
+        guard
+            let weekdaysRange = calendar.range(of: .weekday, in: .weekOfYear, for: today),
+            let index = weekdaysRange.firstIndex(of: calendar.firstWeekday) else {
+            return []
+        }
+
+        let weekdays = weekdaysRange[index...] + weekdaysRange[..<index].map { $0 + weekdaysRange.count }
+        let dates = weekdays.compactMap { calendar.date(byAdding: .day, value: $0 - todaysDayOfWeek, to: today) }
+        
+        return dates.map { date ->  MoodCalendarModel.MoodDay in
+                .init(day: date, moodOfTheDay: .happy)
+        }
     }
 }

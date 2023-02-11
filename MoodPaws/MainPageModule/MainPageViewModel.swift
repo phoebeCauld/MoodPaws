@@ -9,7 +9,7 @@ final class MainPageViewModel: IMainPageViewModel {
         calendar: .init(
             moods: model.calendar.moods.map({ mood -> CalendarStateModel.CalendarState in
                 let date = self.getDateString(from: mood.day)
-                let isCurrentDay = mood.day == Date()
+                let isCurrentDay = Calendar.current.isDateInToday(mood.day)
                 return .init(date: date, isCurrentDay: isCurrentDay, moodOfTheDay: mood.moodOfTheDay)
             })
         )

@@ -9,20 +9,20 @@ import UIKit
 
 
 final class BaseStackView: UIStackView {
-    init(
-        axis: NSLayoutConstraint.Axis = .vertical,
-        spacing: CGFloat = 0
-    ) {
+    init() {
         super.init(frame: .zero)
 
-        self.axis = axis
-        self.spacing = spacing
         setupStackConfigurations()
     }
     
-    func setupStackConfigurations() {
+    private func setupStackConfigurations() {
         self.distribution = .fillEqually
         self.translatesAutoresizingMaskIntoConstraints = false
+    }
+
+    func configure(axis: NSLayoutConstraint.Axis = .vertical, spacing: CGFloat = 0) {
+        self.axis = axis
+        self.spacing = spacing
     }
     
     required init(coder: NSCoder) {
