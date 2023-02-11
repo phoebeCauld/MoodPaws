@@ -13,14 +13,16 @@ protocol AssemblyBuilder {
 }
 
 final class AssemblyModuleBuilder: AssemblyBuilder {
+    private let componentsFactory = ComponentsFactory()
+
     func createInitialVC(router: IRouter) -> UIViewController {
         let model = InitialModel()
         let viewModel = InitialViewModel(router: router, model: model)
-        return InitialViewController(viewModel: viewModel)
+        return InitialViewController(viewModel: viewModel, componentsFactory: componentsFactory)
     }
 
     func createMainPageVC(router: IRouter) -> UIViewController {
         let viewModel = MainPageViewModel(router: router, model: MainPageModel())
-        return MainPageViewController(viewModel: viewModel)
+        return MainPageViewController(viewModel: viewModel, componentsFactory: componentsFactory)
     }
 }

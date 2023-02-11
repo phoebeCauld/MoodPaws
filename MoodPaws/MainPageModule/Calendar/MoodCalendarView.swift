@@ -1,16 +1,14 @@
-//
-//  CalendarView.swift
-//  MoodPaws
-//
-//  Created by Perova Viktoriya Dmitrievna on 27.01.2023.
-//
-
 import UIKit
 
 final class MoodCalendarView: UIView {
-    private let daysStackView = BaseStackView(axis: .horizontal, spacing: 8)
+    private var componentsFactory: IComponentsFactory
+
+    private lazy var titleLable = componentsFactory.makeTitleLabel()
+    private lazy var daysStackView = componentsFactory.makeBaseStackView()
     
-    init() {
+    init(componentsFactory: IComponentsFactory) {
+        self.componentsFactory = componentsFactory
+
         super.init(frame: .zero)
         
         setupView()
@@ -27,27 +25,39 @@ final class MoodCalendarView: UIView {
     }
 
     func configure(with state: CalendarStateModel) {
+        titleLable.configure(with: .init(title: "Current Week", textColor: .white))
+        configureDaysStackView(with: state.moods)
+       
+    }
+
+    private func configureDaysStackView(with moods: [CalendarStateModel.CalendarState]) {
+        daysStackView.configure(axis: .horizontal, spacing: 8)
         daysStackView.arrangedSubviews.forEach{ daysStackView.removeArrangedSubview($0) }
         
-        let moodDaysViews = state.moods.map { model in
-            let view = DayView()
+        let moodDaysViews = moods.map { model in
+            let view = DayView(componentsFactory: componentsFactory)
             view.configure(with: model)
             return view
         }
         
         daysStackView.addArrangedSubviews(moodDaysViews)
-       
     }
 
     private func setupView() {
-        addSubview(daysStackView)
+        addSubviews([
+            titleLable,
+            daysStackView,
+        ])
 
-        //daysStackView.distribution = .fillProportionally
     }
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            daysStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            titleLable.topAnchor.constraint(equalTo: self.topAnchor),
+            titleLable.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            titleLable.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+
+            daysStackView.topAnchor.constraint(equalTo: titleLable.bottomAnchor, constant: 12),
             daysStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             daysStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             daysStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),

@@ -1,14 +1,17 @@
 import UIKit
 
 final class DayView: UIView {
+    private var componentsFactory: IComponentsFactory
+
     private let weekDayLabel = UILabel()
     private let dayLabel = UILabel()
     private let moodView = UIImageView()
     
-    private let dayStackView = BaseStackView(spacing: 4)
+    private lazy var dayStackView = componentsFactory.makeBaseStackView()
     
-    init() {
-         super.init(frame: .zero)
+    init(componentsFactory: IComponentsFactory) {
+        self.componentsFactory = componentsFactory
+        super.init(frame: .zero)
         
         setupView()
     }
@@ -29,6 +32,7 @@ final class DayView: UIView {
         [dayLabel, weekDayLabel].forEach {
             $0.font = .systemFont(ofSize: 14, weight: .semibold)
             $0.textAlignment = .center
+            $0.textColor = .white
         }
         
         let moodName = dayState.moodOfTheDay?.rawValue ?? "noMood"
@@ -36,7 +40,14 @@ final class DayView: UIView {
         moodView.image = .init(named: moodName)
         moodView.contentMode = .scaleAspectFit
         
+        configureBackgroundColor(dayState.isCurrentDay)
+        
         setNeedsLayout()
+    }
+
+    private func configureBackgroundColor(_ isCurrentDay: Bool) {
+        dayStackView.configure(spacing: 4)
+        dayStackView.backgroundColor = isCurrentDay ? .mpDarkPurple : .clear
     }
 
     private func setupView() {
@@ -48,7 +59,6 @@ final class DayView: UIView {
         addSubview(dayStackView)
         dayStackView.roundCorners(corners: .allCorners, radius: 16)
         dayStackView.distribution = .fill
-        dayStackView.backgroundColor = .purple
         dayStackView.layoutMargins = UIEdgeInsets(top: 10, left: 5, bottom: 10, right: 5)
         dayStackView.isLayoutMarginsRelativeArrangement = true
     }
@@ -59,7 +69,7 @@ final class DayView: UIView {
             dayStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             dayStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             dayStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            moodView.heightAnchor.constraint(equalToConstant: 30),
+            moodView.heightAnchor.constraint(equalToConstant: 25),
         ])
     }
 }
