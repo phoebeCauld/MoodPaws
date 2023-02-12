@@ -24,21 +24,6 @@ struct Pet {
             self.imageName = "hamster"
         }
     }
-
-    func support(for mood: Mood) -> String {
-        switch mood {
-        case .good:
-            return "Good job! Keep calm and make great things today!"
-        case .bad:
-            return "Don't worry, we all have a bad day sometimes. Relax and take your time!"
-        }
-    }
-}
-
-
-enum Mood {
-    case good
-    case bad
 }
 
 enum PetType: Int32 {

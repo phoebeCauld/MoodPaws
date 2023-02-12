@@ -23,4 +23,12 @@ extension UIColor {
     public static var mpBlue: UIColor {
         return UIColor(red: 105.0 / 255.0, green: 159.0 / 255.0, blue: 208.0 / 255.0, alpha: 1.0)
     }
+
+    public static var mpLightGreen: UIColor {
+        return UIColor(red: 177.0 / 255.0, green: 242.0 / 255.0, blue: 178.0 / 255.0, alpha: 1.0)
+    }
+    
+    public static var mpLightGray: UIColor {
+        return UIColor(red: 220.0 / 255.0, green: 220.0 / 255.0, blue: 220.0 / 255.0, alpha: 1.0)
+    }
 }

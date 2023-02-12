@@ -1,10 +1,3 @@
-//
-//  BaseStackView.swift
-//  MoodPaws
-//
-//  Created by Perova Viktoriya Dmitrievna on 02.02.2023.
-//
-
 import UIKit
 
 
