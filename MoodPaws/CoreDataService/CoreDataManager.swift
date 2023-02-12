@@ -30,4 +30,29 @@ final class CoreDataManager {
 
         return petSupport
     }
+    
+    func fetchAllDaysMoods() -> [DayMood] {
+        var days: [DayMood] = []
+        do {
+            days = try context.fetch(DayMood.fetchRequest())
+        } catch  {
+            print("Failed with loading days data \(error.localizedDescription)")
+        }
+        
+        return days
+    }
+
+    func fetchCurrentDay() -> DayMood? {
+        var todayMood: DayMood?
+        let fetchRequest = DayMood.fetchRequest()
+        let datePredicate = NSPredicate(format: "%@ = day ", Date() as NSDate)
+        fetchRequest.predicate = datePredicate
+        do {
+            todayMood = try context.fetch(fetchRequest).first
+        } catch  {
+            print("Failed with loading days data \(error.localizedDescription)")
+        }
+        
+        return todayMood
+    }
 }

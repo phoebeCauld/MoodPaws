@@ -22,7 +22,7 @@ final class AssemblyModuleBuilder: AssemblyBuilder {
     }
 
     func createMainPageVC(router: IRouter) -> UIViewController {
-        let viewModel = MainPageViewModel(router: router, model: MainPageModel())
+        let viewModel = MainPageViewModel(router: router)
         return MainPageViewController(viewModel: viewModel, componentsFactory: componentsFactory)
     }
 }

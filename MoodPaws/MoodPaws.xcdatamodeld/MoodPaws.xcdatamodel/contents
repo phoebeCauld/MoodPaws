@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21512" systemVersion="21G72" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DayMood" representedClassName="DayMood" syncable="YES" codeGenerationType="class">
+        <attribute name="day" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="mood" optional="YES" attributeType="String"/>
+        <relationship name="eveningRoutine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EveningRoutine" inverseName="dayMood" inverseEntity="EveningRoutine"/>
+        <relationship name="morningRoutine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MorningRoutine" inverseName="dayMood" inverseEntity="MorningRoutine"/>
+    </entity>
+    <entity name="EveningRoutine" representedClassName="EveningRoutine" syncable="YES" codeGenerationType="class">
+        <relationship name="dayMood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayMood" inverseName="eveningRoutine" inverseEntity="DayMood"/>
+        <relationship name="goodDeeds" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoodDeeds" inverseName="eveningRoutine" inverseEntity="GoodDeeds"/>
+        <relationship name="todayExperience" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TodayExperience" inverseName="eveningRoutine" inverseEntity="TodayExperience"/>
+        <relationship name="tomorrowExpectation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TomorrowExpectation" inverseName="eveningRoutine" inverseEntity="TomorrowExpectation"/>
+    </entity>
+    <entity name="GoodDeeds" representedClassName="GoodDeeds" syncable="YES" codeGenerationType="class">
+        <attribute name="isFilled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="eveningRoutine" maxCount="1" deletionRule="Nullify" destinationEntity="EveningRoutine" inverseName="goodDeeds" inverseEntity="EveningRoutine"/>
+    </entity>
+    <entity name="Grateful" representedClassName="Grateful" syncable="YES" codeGenerationType="class">
+        <attribute name="isFilled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="morningRoutine" maxCount="1" deletionRule="Nullify" destinationEntity="MorningRoutine" inverseName="gratefull" inverseEntity="MorningRoutine"/>
+    </entity>
+    <entity name="MoodAndThoughts" representedClassName="MoodAndThoughts" syncable="YES" codeGenerationType="class">
+        <attribute name="isFilled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="morningRoutine" maxCount="1" deletionRule="Nullify" destinationEntity="MorningRoutine" inverseName="moodAndThoughts" inverseEntity="MorningRoutine"/>
+    </entity>
+    <entity name="MorningRoutine" representedClassName="MorningRoutine" syncable="YES" codeGenerationType="class">
+        <relationship name="dayMood" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DayMood" inverseName="morningRoutine" inverseEntity="DayMood"/>
+        <relationship name="gratefull" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Grateful" inverseName="morningRoutine" inverseEntity="Grateful"/>
+        <relationship name="moodAndThoughts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MoodAndThoughts" inverseName="morningRoutine" inverseEntity="MoodAndThoughts"/>
+        <relationship name="todayExpectation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TodayExpectation" inverseName="morningRoutine" inverseEntity="TodayExpectation"/>
+    </entity>
     <entity name="PetSupport" representedClassName="PetSupport" syncable="YES" codeGenerationType="category">
         <attribute name="age" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imageName" optional="YES" attributeType="String"/>
         <attribute name="kindOfPet" transient="YES" attributeType="Integer 32" valueTransformerName="NSSecureUnarchiveFromDataTransformer" defaultValueString="0" usesScalarValueType="YES" customClassName="PetType"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TodayExpectation" representedClassName="TodayExpectation" syncable="YES" codeGenerationType="class">
+        <attribute name="isFilled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="morningRoutine" maxCount="1" deletionRule="Nullify" destinationEntity="MorningRoutine" inverseName="todayExpectation" inverseEntity="MorningRoutine"/>
+    </entity>
+    <entity name="TodayExperience" representedClassName="TodayExperience" syncable="YES" codeGenerationType="class">
+        <attribute name="isFilled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="eveningRoutine" maxCount="1" deletionRule="Nullify" destinationEntity="EveningRoutine" inverseName="todayExperience" inverseEntity="EveningRoutine"/>
+    </entity>
+    <entity name="TomorrowExpectation" representedClassName="TomorrowExpectation" syncable="YES" codeGenerationType="class">
+        <attribute name="isFilled" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <relationship name="eveningRoutine" maxCount="1" deletionRule="Nullify" destinationEntity="EveningRoutine" inverseName="tomorrowExpectation" inverseEntity="EveningRoutine"/>
     </entity>
 </model>

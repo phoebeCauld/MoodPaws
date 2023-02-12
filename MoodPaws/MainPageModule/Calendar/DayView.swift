@@ -26,23 +26,26 @@ final class DayView: UIView {
         setupConstraints()
     }
 
-    func configure(with dayState: CalendarStateModel.CalendarState) {
+    func configure(with dayState: MoodCalendarModel.MoodDay) {
         weekDayLabel.text = dayState.date.weekday
         dayLabel.text = dayState.date.day
         [dayLabel, weekDayLabel].forEach {
             $0.font = .systemFont(ofSize: 14, weight: .semibold)
             $0.textAlignment = .center
-            $0.textColor = .white
+            $0.textColor = dayState.isCurrentDay ? .white : .mpLightGray
         }
-        
-        let moodName = dayState.moodOfTheDay?.rawValue ?? "noMood"
-
-        moodView.image = .init(named: moodName)
-        moodView.contentMode = .scaleAspectFit
-        
+        configureMoodImageView(with: dayState.moodOfTheDay?.rawValue)
         configureBackgroundColor(dayState.isCurrentDay)
         
         setNeedsLayout()
+    }
+
+    private func configureMoodImageView(with imageName: String?) {
+        moodView.isHidden = imageName == nil
+        guard let moodName = imageName else { return }
+
+        moodView.image = .init(named: moodName)
+        moodView.contentMode = .scaleAspectFit
     }
 
     private func configureBackgroundColor(_ isCurrentDay: Bool) {
@@ -69,7 +72,7 @@ final class DayView: UIView {
             dayStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             dayStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             dayStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            moodView.heightAnchor.constraint(equalToConstant: 25),
+            moodView.heightAnchor.constraint(equalToConstant: 30),
         ])
     }
 }

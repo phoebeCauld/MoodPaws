@@ -6,6 +6,7 @@ final class MainPageViewController: UIViewController {
 
     private let topBackgroundView = UIView()
     private lazy var calendarView = MoodCalendarView(componentsFactory: componentsFactory)
+    private lazy var noteView = NoteView(componentsFactory: componentsFactory)
 
     init(viewModel: IMainPageViewModel, componentsFactory: IComponentsFactory) {
         self.viewModel = viewModel
@@ -25,7 +26,7 @@ final class MainPageViewController: UIViewController {
         view.backgroundColor = .white
 
         guard let viewModel = viewModel as? MainPageViewModel else { return }
-        configureView(with: viewModel.state)
+        configureView(with: viewModel.model)
     }
     
     override func viewWillLayoutSubviews() {
@@ -37,30 +38,39 @@ final class MainPageViewController: UIViewController {
     private func setupVC() {
         view.addSubviews([
             topBackgroundView,
+            calendarView,
+            noteView,
         ])
-        
-        topBackgroundView.addSubview(calendarView)
-        
+        noteView.delegate = self
         topBackgroundView.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 50)
         topBackgroundView.backgroundColor = .mpLightPurple
     }
 
-    private func configureView(with state: MainPageViewState) {
-        calendarView.configure(with: state.calendar)
+    private func configureView(with model: MainPageModel) {
+        calendarView.configure(with: model.calendar)
+        noteView.configure(with: model.noteView)
     }
 
     private func setupConstraints() {
-        topBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        calendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             topBackgroundView.topAnchor.constraint(equalTo: view.topAnchor),
             topBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             topBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             topBackgroundView.heightAnchor.constraint(equalToConstant: 350),
             
-            calendarView.topAnchor.constraint(equalTo: topBackgroundView.topAnchor, constant: 100),
-            calendarView.trailingAnchor.constraint(equalTo: topBackgroundView.trailingAnchor, constant: -16),
-            calendarView.leadingAnchor.constraint(equalTo: topBackgroundView.leadingAnchor, constant: 16),
+            calendarView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            calendarView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            calendarView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            
+            noteView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 32),
+            noteView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            noteView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
         ])
+    }
+}
+
+extension MainPageViewController: NoteCellViewDelegate {
+    func didTapOnCell(_ cell: NoteCellView, withType type: NoteCellModel.NoteType) {
+        viewModel?.didTapOnCell(with: type)
     }
 }

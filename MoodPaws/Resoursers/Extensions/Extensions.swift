@@ -1,10 +1,3 @@
-//
-//  Extensions.swift
-//  MoodPaws
-//
-//  Created by Perova Viktoriya Dmitrievna on 04.01.2023.
-//
-
 import UIKit
 
 public extension UIView {
@@ -45,6 +38,13 @@ public extension UIView {
             layer.cornerCurve = .continuous
         }
     }
+
+    func addShadow() {
+        layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).cgColor
+        layer.shadowOpacity = 0.8
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 16
+    }
 }
 
 extension UITextField {
@@ -82,4 +82,10 @@ extension DateFormatter {
 
         return formatter
     }()
+}
+
+extension Date {
+    var dayAndMonthStringComponents: (String, String) {
+        (DateFormatter.weekdayDateFormatter.string(from: self), DateFormatter.onlyDayDateFormatter.string(from: self))
+    }
 }

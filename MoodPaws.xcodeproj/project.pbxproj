@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4BFD6606BCCFEFDD7277AF59 /* Pods_MoodPaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F717829FF3733FA4A583B965 /* Pods_MoodPaws.framework */; };
-		A60C1F62299607780056AE94 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C1F61299607780056AE94 /* NoteViewController.swift */; };
-		A60C1F6429961B860056AE94 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C1F6329961B860056AE94 /* NoteModel.swift */; };
+		A60C1F62299607780056AE94 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C1F61299607780056AE94 /* NoteView.swift */; };
+		A60C1F6429961B860056AE94 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C1F6329961B860056AE94 /* NoteViewModel.swift */; };
 		A60C20EE299759A20056AE94 /* ComponentsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C20ED299759A20056AE94 /* ComponentsFactory.swift */; };
 		A60C20F029975A000056AE94 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C20EF29975A000056AE94 /* TitleLabel.swift */; };
-		A60C21E7299762440056AE94 /* BasicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21E6299762440056AE94 /* BasicCell.swift */; };
+		A60C21E7299762440056AE94 /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21E6299762440056AE94 /* NoteCellView.swift */; };
+		A60C21EB2998971B0056AE94 /* NoteCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21EA2998971B0056AE94 /* NoteCellModel.swift */; };
+		A60C21EE299897510056AE94 /* TitleLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21ED299897510056AE94 /* TitleLabelModel.swift */; };
 		A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C6296558F600FAA669 /* AppDelegate.swift */; };
 		A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C8296558F600FAA669 /* SceneDelegate.swift */; };
 		A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4CA296558F600FAA669 /* InitialViewController.swift */; };
@@ -43,11 +45,13 @@
 
 /* Begin PBXFileReference section */
 		08B5C4AD7DE834D095FDDEE3 /* Pods-MoodPaws.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodPaws.release.xcconfig"; path = "Target Support Files/Pods-MoodPaws/Pods-MoodPaws.release.xcconfig"; sourceTree = "<group>"; };
-		A60C1F61299607780056AE94 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
-		A60C1F6329961B860056AE94 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		A60C1F61299607780056AE94 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		A60C1F6329961B860056AE94 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		A60C20ED299759A20056AE94 /* ComponentsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsFactory.swift; sourceTree = "<group>"; };
 		A60C20EF29975A000056AE94 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
-		A60C21E6299762440056AE94 /* BasicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicCell.swift; sourceTree = "<group>"; };
+		A60C21E6299762440056AE94 /* NoteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
+		A60C21EA2998971B0056AE94 /* NoteCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellModel.swift; sourceTree = "<group>"; };
+		A60C21ED299897510056AE94 /* TitleLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelModel.swift; sourceTree = "<group>"; };
 		A630D4C3296558F600FAA669 /* MoodPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A630D4C6296558F600FAA669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A630D4C8296558F600FAA669 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +108,9 @@
 		A60C1F60299607400056AE94 /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				A60C1F61299607780056AE94 /* NoteViewController.swift */,
-				A60C1F6329961B860056AE94 /* NoteModel.swift */,
+				A60C21E829987BC70056AE94 /* NoteMakers */,
+				A60C1F61299607780056AE94 /* NoteView.swift */,
+				A60C1F6329961B860056AE94 /* NoteViewModel.swift */,
 			);
 			path = Note;
 			sourceTree = "<group>";
@@ -114,11 +119,62 @@
 			isa = PBXGroup;
 			children = (
 				A60C20ED299759A20056AE94 /* ComponentsFactory.swift */,
-				A60C21E6299762440056AE94 /* BasicCell.swift */,
+				A60C21EC299897400056AE94 /* TitleLabel */,
+				A60C21E9299896E50056AE94 /* NoteCell */,
 				A6CB86D3298B7C41007451D7 /* BaseStackView.swift */,
-				A60C20EF29975A000056AE94 /* TitleLabel.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A60C21E829987BC70056AE94 /* NoteMakers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NoteMakers;
+			sourceTree = "<group>";
+		};
+		A60C21E9299896E50056AE94 /* NoteCell */ = {
+			isa = PBXGroup;
+			children = (
+				A60C21E6299762440056AE94 /* NoteCellView.swift */,
+				A60C21EA2998971B0056AE94 /* NoteCellModel.swift */,
+			);
+			path = NoteCell;
+			sourceTree = "<group>";
+		};
+		A60C21EC299897400056AE94 /* TitleLabel */ = {
+			isa = PBXGroup;
+			children = (
+				A60C20EF29975A000056AE94 /* TitleLabel.swift */,
+				A60C21ED299897510056AE94 /* TitleLabelModel.swift */,
+			);
+			path = TitleLabel;
+			sourceTree = "<group>";
+		};
+		A60C21EF299897740056AE94 /* CoreDataService */ = {
+			isa = PBXGroup;
+			children = (
+				A6A73145297CE53000F31F30 /* PetSupportModel */,
+				A6A7314A297D513D00F31F30 /* CoreDataManager.swift */,
+			);
+			path = CoreDataService;
+			sourceTree = "<group>";
+		};
+		A60C21F0299897980056AE94 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A630D4DF296563F400FAA669 /* AssemblyBuilder.swift */,
+				A630D4E42965656000FAA669 /* Router.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A60C21F1299897B40056AE94 /* AdditionalViews */ = {
+			isa = PBXGroup;
+			children = (
+				A630D7E3296816E700FAA669 /* PetSelectorView.swift */,
+			);
+			path = AdditionalViews;
 			sourceTree = "<group>";
 		};
 		A630D4BA296558F600FAA669 = {
@@ -142,13 +198,13 @@
 		A630D4C5296558F600FAA669 /* MoodPaws */ = {
 			isa = PBXGroup;
 			children = (
+				A60C21F0299897980056AE94 /* Navigation */,
 				A630D4C6296558F600FAA669 /* AppDelegate.swift */,
 				A630D4C8296558F600FAA669 /* SceneDelegate.swift */,
-				A630D4E42965656000FAA669 /* Router.swift */,
-				A630D4DF296563F400FAA669 /* AssemblyBuilder.swift */,
+				A60C21EF299897740056AE94 /* CoreDataService */,
 				A630D6D8296573E300FAA669 /* Resoursers */,
-				A630D7FA2968308800FAA669 /* MainPageModule */,
 				A630D4E12965648100FAA669 /* InitialModule */,
+				A630D7FA2968308800FAA669 /* MainPageModule */,
 				A630D4D2296558F700FAA669 /* Assets.xcassets */,
 				A630D4D4296558F700FAA669 /* LaunchScreen.storyboard */,
 				A630D4D7296558F700FAA669 /* Info.plist */,
@@ -160,9 +216,9 @@
 		A630D4E12965648100FAA669 /* InitialModule */ = {
 			isa = PBXGroup;
 			children = (
+				A60C21F1299897B40056AE94 /* AdditionalViews */,
 				A630D4CA296558F600FAA669 /* InitialViewController.swift */,
 				A630D4E22965649E00FAA669 /* InitialViewModel.swift */,
-				A630D7E3296816E700FAA669 /* PetSelectorView.swift */,
 				A6A7314C297D804A00F31F30 /* InitialModel.swift */,
 			);
 			path = InitialModule;
@@ -173,10 +229,8 @@
 			children = (
 				A60C21E529975FA70056AE94 /* Components */,
 				A6CBFAC72983A066007451D7 /* Extensions */,
-				A6A73145297CE53000F31F30 /* PetSupportModel */,
 				A630D7ED2968256200FAA669 /* LottieAnimations */,
 				A630D6D92965745700FAA669 /* Colors.swift */,
-				A6A7314A297D513D00F31F30 /* CoreDataManager.swift */,
 			);
 			path = Resoursers;
 			sourceTree = "<group>";
@@ -361,7 +415,7 @@
 				A630D6DA2965745700FAA669 /* Colors.swift in Sources */,
 				A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */,
 				A6A73148297CE54600F31F30 /* PetSupport+CoreDataClass.swift in Sources */,
-				A60C1F6429961B860056AE94 /* NoteModel.swift in Sources */,
+				A60C1F6429961B860056AE94 /* NoteViewModel.swift in Sources */,
 				A630D4E0296563F400FAA669 /* AssemblyBuilder.swift in Sources */,
 				A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */,
 				A6CBFAC629839F9C007451D7 /* DayView.swift in Sources */,
@@ -371,14 +425,16 @@
 				A630D7E4296816E700FAA669 /* PetSelectorView.swift in Sources */,
 				A6CB86D4298B7C41007451D7 /* BaseStackView.swift in Sources */,
 				A630D4E52965656000FAA669 /* Router.swift in Sources */,
-				A60C1F62299607780056AE94 /* NoteViewController.swift in Sources */,
+				A60C1F62299607780056AE94 /* NoteView.swift in Sources */,
 				A6CBFABD29837A5A007451D7 /* MainPageModel.swift in Sources */,
-				A60C21E7299762440056AE94 /* BasicCell.swift in Sources */,
+				A60C21E7299762440056AE94 /* NoteCellView.swift in Sources */,
 				A60C20F029975A000056AE94 /* TitleLabel.swift in Sources */,
 				A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */,
 				A6CBFAC2298386D6007451D7 /* CalendarStateModel.swift in Sources */,
 				A6CBFAC0298386C1007451D7 /* MoodCalendarView.swift in Sources */,
+				A60C21EE299897510056AE94 /* TitleLabelModel.swift in Sources */,
 				A630D4D1296558F600FAA669 /* MoodPaws.xcdatamodeld in Sources */,
+				A60C21EB2998971B0056AE94 /* NoteCellModel.swift in Sources */,
 				A6A7314B297D513D00F31F30 /* CoreDataManager.swift in Sources */,
 				A630D4E32965649E00FAA669 /* InitialViewModel.swift in Sources */,
 			);

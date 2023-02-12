@@ -11,7 +11,7 @@ import Foundation
 protocol IComponentsFactory {
     func makeBaseStackView() -> BaseStackView
     func makeTitleLabel() -> TitleLbel
-    func makeBaseCell() -> BasicCell
+    func makeBaseCell() -> NoteCellView
 }
 
 final class ComponentsFactory: IComponentsFactory {
@@ -23,7 +23,7 @@ final class ComponentsFactory: IComponentsFactory {
         TitleLbel()
     }
 
-    func makeBaseCell() -> BasicCell {
-        BasicCell()
+    func makeBaseCell() -> NoteCellView {
+        NoteCellView()
     }
 }

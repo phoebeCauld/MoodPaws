@@ -24,13 +24,13 @@ final class MoodCalendarView: UIView {
         setupConstraints()
     }
 
-    func configure(with state: CalendarStateModel) {
+    func configure(with state: MoodCalendarModel) {
         titleLable.configure(with: .init(title: "Current Week", textColor: .white))
         configureDaysStackView(with: state.moods)
        
     }
 
-    private func configureDaysStackView(with moods: [CalendarStateModel.CalendarState]) {
+    private func configureDaysStackView(with moods: [MoodCalendarModel.MoodDay]) {
         daysStackView.configure(axis: .horizontal, spacing: 8)
         daysStackView.arrangedSubviews.forEach{ daysStackView.removeArrangedSubview($0) }
         
