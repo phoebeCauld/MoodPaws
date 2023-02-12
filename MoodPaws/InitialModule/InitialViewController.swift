@@ -4,7 +4,7 @@ class InitialViewController: UIViewController {
     private var componentsFactory: IComponentsFactory
     private let blurView: UIVisualEffectView = .init(effect: UIBlurEffect.init(style: .regular))
     
-    private lazy var titleLabel = componentsFactory.makeTitleLabel()
+    private lazy var titleLabel = componentsFactory.makeCommonTextLabel()
     private let petSelectorView = PetSelectorView()
     
     private lazy var petImagePageControl: UIPageControl = {
@@ -222,7 +222,7 @@ private extension InitialViewController {
     }
     
     private func configureView(with state: InitialModelViewState) {
-        titleLabel.configure(with: .init(title: "Chose your support pet",
+        titleLabel.configure(with: TitleLabelModel(title: "Chose your support pet",
                                          textColor: .mpDarkPurple,
                                          textAlignment: .center))
         

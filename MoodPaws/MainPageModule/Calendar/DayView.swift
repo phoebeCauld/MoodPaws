@@ -42,9 +42,9 @@ final class DayView: UIView {
 
     private func configureMoodImageView(with imageName: String?) {
         moodView.isHidden = imageName == nil
-        guard let moodName = imageName else { return }
+        guard let imageName else { return }
 
-        moodView.image = .init(named: moodName)
+        moodView.image = .init(named: imageName)
         moodView.contentMode = .scaleAspectFit
     }
 

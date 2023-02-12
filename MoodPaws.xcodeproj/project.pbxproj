@@ -11,10 +11,14 @@
 		A60C1F62299607780056AE94 /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C1F61299607780056AE94 /* NoteView.swift */; };
 		A60C1F6429961B860056AE94 /* NoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C1F6329961B860056AE94 /* NoteViewModel.swift */; };
 		A60C20EE299759A20056AE94 /* ComponentsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C20ED299759A20056AE94 /* ComponentsFactory.swift */; };
-		A60C20F029975A000056AE94 /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C20EF29975A000056AE94 /* TitleLabel.swift */; };
+		A60C20F029975A000056AE94 /* CommonTextLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C20EF29975A000056AE94 /* CommonTextLabelView.swift */; };
 		A60C21E7299762440056AE94 /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21E6299762440056AE94 /* NoteCellView.swift */; };
 		A60C21EB2998971B0056AE94 /* NoteCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21EA2998971B0056AE94 /* NoteCellModel.swift */; };
 		A60C21EE299897510056AE94 /* TitleLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21ED299897510056AE94 /* TitleLabelModel.swift */; };
+		A60C21F32998BF490056AE94 /* CurrentMoodAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21F22998BF490056AE94 /* CurrentMoodAddView.swift */; };
+		A60C21F62998C5950056AE94 /* CurrentMoodAddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21F52998C5950056AE94 /* CurrentMoodAddModel.swift */; };
+		A60C21FB2998C7AF0056AE94 /* CommonTextLabelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21FA2998C7AF0056AE94 /* CommonTextLabelProtocol.swift */; };
+		A60C21FD2998CA380056AE94 /* TextLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21FC2998CA380056AE94 /* TextLabelModel.swift */; };
 		A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C6296558F600FAA669 /* AppDelegate.swift */; };
 		A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C8296558F600FAA669 /* SceneDelegate.swift */; };
 		A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4CA296558F600FAA669 /* InitialViewController.swift */; };
@@ -48,10 +52,14 @@
 		A60C1F61299607780056AE94 /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		A60C1F6329961B860056AE94 /* NoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewModel.swift; sourceTree = "<group>"; };
 		A60C20ED299759A20056AE94 /* ComponentsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsFactory.swift; sourceTree = "<group>"; };
-		A60C20EF29975A000056AE94 /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		A60C20EF29975A000056AE94 /* CommonTextLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextLabelView.swift; sourceTree = "<group>"; };
 		A60C21E6299762440056AE94 /* NoteCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
 		A60C21EA2998971B0056AE94 /* NoteCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCellModel.swift; sourceTree = "<group>"; };
 		A60C21ED299897510056AE94 /* TitleLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabelModel.swift; sourceTree = "<group>"; };
+		A60C21F22998BF490056AE94 /* CurrentMoodAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMoodAddView.swift; sourceTree = "<group>"; };
+		A60C21F52998C5950056AE94 /* CurrentMoodAddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMoodAddModel.swift; sourceTree = "<group>"; };
+		A60C21FA2998C7AF0056AE94 /* CommonTextLabelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextLabelProtocol.swift; sourceTree = "<group>"; };
+		A60C21FC2998CA380056AE94 /* TextLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelModel.swift; sourceTree = "<group>"; };
 		A630D4C3296558F600FAA669 /* MoodPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A630D4C6296558F600FAA669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A630D4C8296558F600FAA669 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,7 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				A60C20ED299759A20056AE94 /* ComponentsFactory.swift */,
-				A60C21EC299897400056AE94 /* TitleLabel */,
+				A60C21EC299897400056AE94 /* TiextLabels */,
 				A60C21E9299896E50056AE94 /* NoteCell */,
 				A6CB86D3298B7C41007451D7 /* BaseStackView.swift */,
 			);
@@ -142,13 +150,14 @@
 			path = NoteCell;
 			sourceTree = "<group>";
 		};
-		A60C21EC299897400056AE94 /* TitleLabel */ = {
+		A60C21EC299897400056AE94 /* TiextLabels */ = {
 			isa = PBXGroup;
 			children = (
-				A60C20EF29975A000056AE94 /* TitleLabel.swift */,
+				A60C21FE2998CA790056AE94 /* CommonTextLabel */,
+				A60C21FC2998CA380056AE94 /* TextLabelModel.swift */,
 				A60C21ED299897510056AE94 /* TitleLabelModel.swift */,
 			);
-			path = TitleLabel;
+			path = TiextLabels;
 			sourceTree = "<group>";
 		};
 		A60C21EF299897740056AE94 /* CoreDataService */ = {
@@ -175,6 +184,24 @@
 				A630D7E3296816E700FAA669 /* PetSelectorView.swift */,
 			);
 			path = AdditionalViews;
+			sourceTree = "<group>";
+		};
+		A60C21F42998C57A0056AE94 /* CurrentMoodAdd */ = {
+			isa = PBXGroup;
+			children = (
+				A60C21F22998BF490056AE94 /* CurrentMoodAddView.swift */,
+				A60C21F52998C5950056AE94 /* CurrentMoodAddModel.swift */,
+			);
+			path = CurrentMoodAdd;
+			sourceTree = "<group>";
+		};
+		A60C21FE2998CA790056AE94 /* CommonTextLabel */ = {
+			isa = PBXGroup;
+			children = (
+				A60C21FA2998C7AF0056AE94 /* CommonTextLabelProtocol.swift */,
+				A60C20EF29975A000056AE94 /* CommonTextLabelView.swift */,
+			);
+			path = CommonTextLabel;
 			sourceTree = "<group>";
 		};
 		A630D4BA296558F600FAA669 = {
@@ -253,6 +280,7 @@
 				A630D7FB296830A300FAA669 /* MainPageViewController.swift */,
 				A6CBFABA29837A48007451D7 /* MainPageViewModel.swift */,
 				A6CBFABC29837A5A007451D7 /* MainPageModel.swift */,
+				A60C21F42998C57A0056AE94 /* CurrentMoodAdd */,
 			);
 			path = MainPageModule;
 			sourceTree = "<group>";
@@ -416,6 +444,7 @@
 				A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */,
 				A6A73148297CE54600F31F30 /* PetSupport+CoreDataClass.swift in Sources */,
 				A60C1F6429961B860056AE94 /* NoteViewModel.swift in Sources */,
+				A60C21FD2998CA380056AE94 /* TextLabelModel.swift in Sources */,
 				A630D4E0296563F400FAA669 /* AssemblyBuilder.swift in Sources */,
 				A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */,
 				A6CBFAC629839F9C007451D7 /* DayView.swift in Sources */,
@@ -425,10 +454,13 @@
 				A630D7E4296816E700FAA669 /* PetSelectorView.swift in Sources */,
 				A6CB86D4298B7C41007451D7 /* BaseStackView.swift in Sources */,
 				A630D4E52965656000FAA669 /* Router.swift in Sources */,
+				A60C21F62998C5950056AE94 /* CurrentMoodAddModel.swift in Sources */,
+				A60C21F32998BF490056AE94 /* CurrentMoodAddView.swift in Sources */,
 				A60C1F62299607780056AE94 /* NoteView.swift in Sources */,
+				A60C21FB2998C7AF0056AE94 /* CommonTextLabelProtocol.swift in Sources */,
 				A6CBFABD29837A5A007451D7 /* MainPageModel.swift in Sources */,
 				A60C21E7299762440056AE94 /* NoteCellView.swift in Sources */,
-				A60C20F029975A000056AE94 /* TitleLabel.swift in Sources */,
+				A60C20F029975A000056AE94 /* CommonTextLabelView.swift in Sources */,
 				A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */,
 				A6CBFAC2298386D6007451D7 /* CalendarStateModel.swift in Sources */,
 				A6CBFAC0298386C1007451D7 /* MoodCalendarView.swift in Sources */,

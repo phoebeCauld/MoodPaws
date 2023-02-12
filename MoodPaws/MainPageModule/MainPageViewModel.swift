@@ -8,9 +8,11 @@ final class MainPageViewModel: IMainPageViewModel {
 
     private var router: IRouter
     private (set) lazy var model = MainPageModel(calendar: .init(moods: getCurrentWeekWithMood()),
-                                                 noteView: getNoteModel())
+                                                 noteView: getNoteModel(),
+                                                 currentMoodAdd: getCurrentMoodAddModel())
 
     private let allDaysMoods = CoreDataManager.shared.fetchAllDaysMoods()
+    private let todayMood = CoreDataManager.shared.fetchCurrentDay()
 
     init(
         router: IRouter
@@ -50,8 +52,6 @@ final class MainPageViewModel: IMainPageViewModel {
     }
 
     private func getNoteModel() -> NoteViewModel {
-        let todayMood = CoreDataManager.shared.fetchCurrentDay()
-
         let noteTime = NoteTime(with: Date())
         switch noteTime {
         case .morning:
@@ -59,6 +59,24 @@ final class MainPageViewModel: IMainPageViewModel {
         case .evening:
             return NoteViewModel.makeEveningModel(with: todayMood)
         }
+    }
+
+    func getCurrentMoodAddModel() -> CurrentMoodAddModel {
+        let currentMood: CurrentMoodAddModel.CurrentMood
+        var hintText = TextLabelModel (title: "",
+                                       font: .systemFont(ofSize: 14, weight: .semibold),
+                                       textAlignment: .center)
+        
+        if let moodName = todayMood?.mood {
+            currentMood = .mood(moodName)
+            hintText.title = "If your mood has changed, you can change it"
+        } else {
+            currentMood = .noMood(.init(title: "You have not added a mood yet",
+                                  font: .systemFont(ofSize: 16, weight: .semibold),
+                                  textAlignment: .center))
+            hintText.title = "Tap to add your mood at the moment"
+        }
+        return .init(title: .init(title: "Current mood"), currentMood: currentMood, hintText: hintText)
     }
 
 }

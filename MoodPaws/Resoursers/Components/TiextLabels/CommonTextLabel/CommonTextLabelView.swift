@@ -1,6 +1,6 @@
 import UIKit
 
-final class TitleLbel: UILabel {
+final class CommonTextLabelView: UILabel {
 
     init() {
         super.init(frame: .zero)
@@ -12,10 +12,10 @@ final class TitleLbel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: TitleLabelModel) {
+    func configure(with model: ICommonTextLabel) {
         text = model.title
-        textColor = model.textColor ?? .label
-        font = model.font ?? .systemFont(ofSize: 30, weight: .bold)
-        textAlignment = model.textAlignment ?? .left
+        textColor = model.textColor
+        font = model.font
+        textAlignment = model.textAlignment
     }
 }

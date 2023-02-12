@@ -3,7 +3,7 @@ import UIKit
 final class MoodCalendarView: UIView {
     private var componentsFactory: IComponentsFactory
 
-    private lazy var titleLable = componentsFactory.makeTitleLabel()
+    private lazy var titleLable = componentsFactory.makeCommonTextLabel()
     private lazy var daysStackView = componentsFactory.makeBaseStackView()
     
     init(componentsFactory: IComponentsFactory) {
@@ -25,7 +25,7 @@ final class MoodCalendarView: UIView {
     }
 
     func configure(with state: MoodCalendarModel) {
-        titleLable.configure(with: .init(title: "Current Week", textColor: .white))
+        titleLable.configure(with: TitleLabelModel(title: "Current Week", textColor: .white))
         configureDaysStackView(with: state.moods)
        
     }

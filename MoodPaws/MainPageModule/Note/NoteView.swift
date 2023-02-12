@@ -5,7 +5,7 @@ final class NoteView: UIView {
 
     private let componentsFactory: IComponentsFactory
     
-    private lazy var titleLabel = componentsFactory.makeTitleLabel()
+    private lazy var titleLabel = componentsFactory.makeCommonTextLabel()
     private lazy var cellsStackView = componentsFactory.makeBaseStackView()
     
     init(componentsFactory: IComponentsFactory) {
