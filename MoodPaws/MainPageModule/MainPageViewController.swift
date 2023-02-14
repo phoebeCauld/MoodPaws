@@ -1,7 +1,8 @@
 import UIKit
 
 final class MainPageViewController: UIViewController {
-    private let viewModel: IMainPageViewModel?
+    var viewModel: IMainPageViewModel?
+
     private var componentsFactory: IComponentsFactory
 
     private let topBackgroundView = UIView()
@@ -27,12 +28,9 @@ final class MainPageViewController: UIViewController {
         view.backgroundColor = .white
 
         guard let viewModel = viewModel as? MainPageViewModel else { return }
+        viewModel.delegate = self
         configureView(with: viewModel.model)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
+        
         setupConstraints()
     }
 
@@ -53,6 +51,8 @@ final class MainPageViewController: UIViewController {
         calendarView.configure(with: model.calendar)
         noteView.configure(with: model.noteView)
         currentMoodAddView.configureView(with: model.currentMoodAdd)
+        
+        view.setNeedsLayout()
     }
 
     private func setupConstraints() {
@@ -78,6 +78,12 @@ final class MainPageViewController: UIViewController {
     }
 }
 
+extension MainPageViewController: MainPageViewModelDelegate {
+    func modelDidRegenerate(viewModel: MainPageViewModel) {
+        configureView(with: viewModel.model)
+    }
+}
+
 extension MainPageViewController: NoteCellViewDelegate {
     func didTapOnCell(_ cell: NoteCellView, withType type: NoteCellModel.NoteType) {
         viewModel?.didTapOnCell(with: type)
@@ -86,6 +92,6 @@ extension MainPageViewController: NoteCellViewDelegate {
 
 extension MainPageViewController: CurrentMoodAddViewDelegate {
     func goToCurrentMoodCreatorView(_ view: CurrentMoodAddView) {
-        //
+        viewModel?.goToCurrentMoodCreatorVC()
     }
 }

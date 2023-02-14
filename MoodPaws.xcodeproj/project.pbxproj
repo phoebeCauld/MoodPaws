@@ -19,6 +19,7 @@
 		A60C21F62998C5950056AE94 /* CurrentMoodAddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21F52998C5950056AE94 /* CurrentMoodAddModel.swift */; };
 		A60C21FB2998C7AF0056AE94 /* CommonTextLabelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21FA2998C7AF0056AE94 /* CommonTextLabelProtocol.swift */; };
 		A60C21FD2998CA380056AE94 /* TextLabelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C21FC2998CA380056AE94 /* TextLabelModel.swift */; };
+		A60C22012998FE510056AE94 /* CurrentMoodCreatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60C22002998FE510056AE94 /* CurrentMoodCreatorView.swift */; };
 		A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C6296558F600FAA669 /* AppDelegate.swift */; };
 		A630D4C9296558F600FAA669 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4C8296558F600FAA669 /* SceneDelegate.swift */; };
 		A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A630D4CA296558F600FAA669 /* InitialViewController.swift */; };
@@ -45,6 +46,9 @@
 		A6CBFAC0298386C1007451D7 /* MoodCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFABF298386C1007451D7 /* MoodCalendarView.swift */; };
 		A6CBFAC2298386D6007451D7 /* CalendarStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFAC1298386D6007451D7 /* CalendarStateModel.swift */; };
 		A6CBFAC629839F9C007451D7 /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CBFAC529839F9C007451D7 /* DayView.swift */; };
+		A6D6C7E5299A4FA000B12151 /* CurrentMoodCreatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6C7E4299A4FA000B12151 /* CurrentMoodCreatorViewModel.swift */; };
+		A6D6C7E8299A6CE400B12151 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6C7E7299A6CE400B12151 /* ActionButton.swift */; };
+		A6D6C7EA299A6F6000B12151 /* ActionButtonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D6C7E9299A6F6000B12151 /* ActionButtonModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +64,7 @@
 		A60C21F52998C5950056AE94 /* CurrentMoodAddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMoodAddModel.swift; sourceTree = "<group>"; };
 		A60C21FA2998C7AF0056AE94 /* CommonTextLabelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTextLabelProtocol.swift; sourceTree = "<group>"; };
 		A60C21FC2998CA380056AE94 /* TextLabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabelModel.swift; sourceTree = "<group>"; };
+		A60C22002998FE510056AE94 /* CurrentMoodCreatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMoodCreatorView.swift; sourceTree = "<group>"; };
 		A630D4C3296558F600FAA669 /* MoodPaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodPaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A630D4C6296558F600FAA669 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A630D4C8296558F600FAA669 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +93,9 @@
 		A6CBFABF298386C1007451D7 /* MoodCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodCalendarView.swift; sourceTree = "<group>"; };
 		A6CBFAC1298386D6007451D7 /* CalendarStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStateModel.swift; sourceTree = "<group>"; };
 		A6CBFAC529839F9C007451D7 /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
+		A6D6C7E4299A4FA000B12151 /* CurrentMoodCreatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMoodCreatorViewModel.swift; sourceTree = "<group>"; };
+		A6D6C7E7299A6CE400B12151 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		A6D6C7E9299A6F6000B12151 /* ActionButtonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonModel.swift; sourceTree = "<group>"; };
 		CCAA4ABA442B64643C7432E7 /* Pods-MoodPaws.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoodPaws.debug.xcconfig"; path = "Target Support Files/Pods-MoodPaws/Pods-MoodPaws.debug.xcconfig"; sourceTree = "<group>"; };
 		F717829FF3733FA4A583B965 /* Pods_MoodPaws.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoodPaws.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				A60C20ED299759A20056AE94 /* ComponentsFactory.swift */,
+				A6D6C7E6299A6CC700B12151 /* ActionButton */,
 				A60C21EC299897400056AE94 /* TiextLabels */,
 				A60C21E9299896E50056AE94 /* NoteCell */,
 				A6CB86D3298B7C41007451D7 /* BaseStackView.swift */,
@@ -189,6 +198,7 @@
 		A60C21F42998C57A0056AE94 /* CurrentMoodAdd */ = {
 			isa = PBXGroup;
 			children = (
+				A60C21FF2998FE300056AE94 /* CurrentMoodCreatorView */,
 				A60C21F22998BF490056AE94 /* CurrentMoodAddView.swift */,
 				A60C21F52998C5950056AE94 /* CurrentMoodAddModel.swift */,
 			);
@@ -202,6 +212,15 @@
 				A60C20EF29975A000056AE94 /* CommonTextLabelView.swift */,
 			);
 			path = CommonTextLabel;
+			sourceTree = "<group>";
+		};
+		A60C21FF2998FE300056AE94 /* CurrentMoodCreatorView */ = {
+			isa = PBXGroup;
+			children = (
+				A60C22002998FE510056AE94 /* CurrentMoodCreatorView.swift */,
+				A6D6C7E4299A4FA000B12151 /* CurrentMoodCreatorViewModel.swift */,
+			);
+			path = CurrentMoodCreatorView;
 			sourceTree = "<group>";
 		};
 		A630D4BA296558F600FAA669 = {
@@ -310,6 +329,15 @@
 				A630D7D32965866800FAA669 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A6D6C7E6299A6CC700B12151 /* ActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				A6D6C7E7299A6CE400B12151 /* ActionButton.swift */,
+				A6D6C7E9299A6F6000B12151 /* ActionButtonModel.swift */,
+			);
+			path = ActionButton;
 			sourceTree = "<group>";
 		};
 		AF1B0CAE6BE40F7A5282404C /* Frameworks */ = {
@@ -440,14 +468,17 @@
 				A60C20EE299759A20056AE94 /* ComponentsFactory.swift in Sources */,
 				A6CBFABB29837A48007451D7 /* MainPageViewModel.swift in Sources */,
 				A630D4E72965666900FAA669 /* PetSupportModel.swift in Sources */,
+				A60C22012998FE510056AE94 /* CurrentMoodCreatorView.swift in Sources */,
 				A630D6DA2965745700FAA669 /* Colors.swift in Sources */,
 				A630D4CB296558F600FAA669 /* InitialViewController.swift in Sources */,
 				A6A73148297CE54600F31F30 /* PetSupport+CoreDataClass.swift in Sources */,
 				A60C1F6429961B860056AE94 /* NoteViewModel.swift in Sources */,
+				A6D6C7E5299A4FA000B12151 /* CurrentMoodCreatorViewModel.swift in Sources */,
 				A60C21FD2998CA380056AE94 /* TextLabelModel.swift in Sources */,
 				A630D4E0296563F400FAA669 /* AssemblyBuilder.swift in Sources */,
 				A630D4C7296558F600FAA669 /* AppDelegate.swift in Sources */,
 				A6CBFAC629839F9C007451D7 /* DayView.swift in Sources */,
+				A6D6C7EA299A6F6000B12151 /* ActionButtonModel.swift in Sources */,
 				A6A7314D297D804A00F31F30 /* InitialModel.swift in Sources */,
 				A630D7D42965866800FAA669 /* Extensions.swift in Sources */,
 				A630D7FC296830A300FAA669 /* MainPageViewController.swift in Sources */,
@@ -469,6 +500,7 @@
 				A60C21EB2998971B0056AE94 /* NoteCellModel.swift in Sources */,
 				A6A7314B297D513D00F31F30 /* CoreDataManager.swift in Sources */,
 				A630D4E32965649E00FAA669 /* InitialViewModel.swift in Sources */,
+				A6D6C7E8299A6CE400B12151 /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,27 +12,26 @@ final class MoodCalendarView: UIView {
         super.init(frame: .zero)
         
         setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setupConstraints()
-    }
 
     func configure(with state: MoodCalendarModel) {
         titleLable.configure(with: TitleLabelModel(title: "Current Week", textColor: .white))
         configureDaysStackView(with: state.moods)
-       
+        
+        setNeedsLayout()
     }
 
     private func configureDaysStackView(with moods: [MoodCalendarModel.MoodDay]) {
         daysStackView.configure(axis: .horizontal, spacing: 8)
-        daysStackView.arrangedSubviews.forEach{ daysStackView.removeArrangedSubview($0) }
+        daysStackView.arrangedSubviews.forEach{
+            daysStackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
         
         let moodDaysViews = moods.map { model in
             let view = DayView(componentsFactory: componentsFactory)

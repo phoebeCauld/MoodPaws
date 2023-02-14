@@ -25,7 +25,7 @@ final class CurrentMoodAddView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -55,7 +55,10 @@ final class CurrentMoodAddView: UIView {
     }
 
     private func configureCurrentMoodStackView(with moodName: String) {
-        moodsStackView.arrangedSubviews.forEach { moodsStackView.removeArrangedSubview($0) }
+        moodsStackView.arrangedSubviews.forEach {
+            moodsStackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
 
         let moodsArray = Mood.allCases.map { $0.rawValue }.filter{ $0 != moodName }
         

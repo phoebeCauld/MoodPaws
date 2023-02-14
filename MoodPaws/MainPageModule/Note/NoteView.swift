@@ -14,11 +14,6 @@ final class NoteView: UIView {
         super.init(frame: .zero)
         
         setupView()
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
         setupConstraints()
     }
 
@@ -34,13 +29,17 @@ final class NoteView: UIView {
     
     func configure(with model: NoteViewModel) {
         titleLabel.configure(with: model.titleLabel)
-
         configureCellsStackView(with: model.noteCells)
+        
+        setNeedsLayout()
     }
 
     private func configureCellsStackView(with cells: [NoteCellModel]) {
         cellsStackView.configure(spacing: 8)
-        cellsStackView.arrangedSubviews.forEach{ cellsStackView.removeArrangedSubview($0) }
+        cellsStackView.arrangedSubviews.forEach{
+            cellsStackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
         
         let noteCellViews = cells.map { model in
             let cell = componentsFactory.makeBaseCell()

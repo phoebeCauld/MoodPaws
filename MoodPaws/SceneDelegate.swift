@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         let router = Router(navigationController: navigationController,
                             assemblyBuilder: AssemblyModuleBuilder())
-        router.showInitialVC()
+        router.showMainPageVC()
+        //showCurrentMoodCreatorVC(with: .init(moods: Mood.allCases, lastChoosenMood: .anger) )
         window?.rootViewController = navigationController
     }
 

@@ -12,6 +12,7 @@ protocol IComponentsFactory {
     func makeBaseStackView() -> BaseStackView
     func makeCommonTextLabel() -> CommonTextLabelView
     func makeBaseCell() -> NoteCellView
+    func makeActionButton() -> ActionButton
 }
 
 final class ComponentsFactory: IComponentsFactory {
@@ -25,5 +26,9 @@ final class ComponentsFactory: IComponentsFactory {
 
     func makeBaseCell() -> NoteCellView {
         NoteCellView()
+    }
+
+    func makeActionButton() -> ActionButton {
+        ActionButton()
     }
 }
