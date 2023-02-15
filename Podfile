@@ -7,5 +7,6 @@ target 'MoodPaws' do
 
   # Pods for MoodPaws
   pod 'lottie-ios'
+  pod "UPCarouselFlowLayout"
 
 end

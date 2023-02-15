@@ -4,7 +4,7 @@ class InitialViewController: UIViewController {
     private var componentsFactory: IComponentsFactory
     private let blurView: UIVisualEffectView = .init(effect: UIBlurEffect.init(style: .regular))
     
-    private lazy var titleLabel = componentsFactory.makeTitleLabel()
+    private lazy var titleLabel = componentsFactory.makeCommonTextLabel()
     private let petSelectorView = PetSelectorView()
     
     private lazy var petImagePageControl: UIPageControl = {
@@ -16,19 +16,7 @@ class InitialViewController: UIViewController {
         return pageControl
     }()
     
-    private let petSelectButton: UIButton = {
-        let button = UIButton()
-        let title = NSAttributedString(
-            string: "Select",
-            attributes: [
-                .font: UIFont.systemFont(ofSize: 25, weight: .semibold),
-                .foregroundColor: UIColor.white
-            ])
-        button.setAttributedTitle(title, for: .normal)
-        button.roundCorners(corners: .allCorners, radius: 20)
-        button.backgroundColor = .mpDarkPurple
-        return button
-    }()
+    private lazy var petSelectButton = componentsFactory.makeActionButton()
     
     private let nameTextField: UITextField = {
         let textField = UITextField()
@@ -222,10 +210,10 @@ private extension InitialViewController {
     }
     
     private func configureView(with state: InitialModelViewState) {
-        titleLabel.configure(with: .init(title: "Chose your support pet",
+        titleLabel.configure(with: TitleLabelModel(title: "Chose your support pet",
                                          textColor: .mpDarkPurple,
                                          textAlignment: .center))
-        
+        petSelectButton.configureButton(with: ActionButtonModel(title: "Select"))
         nameSelectorStackView.configure(axis: .horizontal, spacing: 16)
         nameSelectorStackView.distribution = .fillProportionally
         

@@ -10,6 +10,7 @@ import UIKit
 protocol AssemblyBuilder {
     func createInitialVC(router: IRouter) -> UIViewController
     func createMainPageVC(router: IRouter) -> UIViewController
+    func createCurrentMoodCreatorVC(router: IRouter, model: CurrentMoodCreatorModel) -> UIViewController
 }
 
 final class AssemblyModuleBuilder: AssemblyBuilder {
@@ -24,5 +25,10 @@ final class AssemblyModuleBuilder: AssemblyBuilder {
     func createMainPageVC(router: IRouter) -> UIViewController {
         let viewModel = MainPageViewModel(router: router)
         return MainPageViewController(viewModel: viewModel, componentsFactory: componentsFactory)
+    }
+
+    func createCurrentMoodCreatorVC(router: IRouter, model: CurrentMoodCreatorModel) -> UIViewController {
+        let viewModel = CurrentMoodCreatorViewModel(router: router, model: model)
+        return CurrentMoodCreatorViewController(viewModel: viewModel, componentsFactory: componentsFactory)
     }
 }

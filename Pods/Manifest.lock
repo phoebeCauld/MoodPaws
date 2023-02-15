@@ -1,16 +1,20 @@
 PODS:
   - lottie-ios (4.0.1)
+  - UPCarouselFlowLayout (1.1.2)
 
 DEPENDENCIES:
   - lottie-ios
+  - UPCarouselFlowLayout
 
 SPEC REPOS:
   trunk:
     - lottie-ios
+    - UPCarouselFlowLayout
 
 SPEC CHECKSUMS:
   lottie-ios: 54d22edf55b839f0929cabbfe609c9aa548b1145
+  UPCarouselFlowLayout: 4c7d2c43a10ebb1597bde502a53699d378341dad
 
-PODFILE CHECKSUM: b532d5b9be543a42b7013511550ec1a85fde643a
+PODFILE CHECKSUM: 1275e417933cbac1258ce32d614038263925c848
 
 COCOAPODS: 1.11.3

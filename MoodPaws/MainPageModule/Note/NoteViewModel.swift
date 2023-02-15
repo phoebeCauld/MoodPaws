@@ -14,15 +14,15 @@ struct NoteViewModel {
         let gratefulСell = NoteCellModel(
             titleText: "Grateful",
             noteType: .grateful,
-            isNoteСompleted: moodModel?.morningRoutine?.gratefull?.isFilled ?? false)
+            isNoteСompleted: moodModel?.morningRoutine?.gratefull?.isEmpty  == false)
         let moodCell = NoteCellModel(
             titleText: "Write what you feel now",
             noteType: .mood,
-            isNoteСompleted: moodModel?.morningRoutine?.moodAndThoughts?.isFilled ?? false)
+            isNoteСompleted: moodModel?.morningRoutine?.moodAndThoughts?.isEmpty  == false)
         let todayExpectationCell = NoteCellModel(
             titleText: "Today's expectations",
             noteType: .todayExpectation,
-            isNoteСompleted: moodModel?.morningRoutine?.todayExpectation?.isFilled ?? false)
+            isNoteСompleted: moodModel?.morningRoutine?.todayExpectation?.isEmpty  == false)
         
         return .init(titleLabel: titleLabel, noteCells: [gratefulСell, moodCell, todayExpectationCell])
     }
@@ -32,15 +32,15 @@ struct NoteViewModel {
         let goodDeedsСell = NoteCellModel(
             titleText: "Good deeds",
             noteType: .goodDeeds,
-            isNoteСompleted: moodModel?.eveningRoutine?.goodDeeds?.isFilled ?? false)
+            isNoteСompleted: moodModel?.eveningRoutine?.goodDeeds?.isEmpty == false)
         let todayExperienceCell = NoteCellModel(
             titleText: "Today's great experience",
             noteType: .todayExperience,
-            isNoteСompleted: moodModel?.eveningRoutine?.todayExperience?.isFilled ?? false)
+            isNoteСompleted: moodModel?.eveningRoutine?.todayExperience?.isEmpty  == false)
         let tomorrowExpectationCell = NoteCellModel(
             titleText: "What about tomorrow?",
             noteType: .tomorrowExpectation,
-            isNoteСompleted: moodModel?.eveningRoutine?.tomorrowExpectation?.isFilled ?? false)
+            isNoteСompleted: moodModel?.eveningRoutine?.tomorrowExpectation?.isEmpty  == false)
         
         return .init(titleLabel: titleLabel,
                      noteCells: [goodDeedsСell, todayExperienceCell, tomorrowExpectationCell])

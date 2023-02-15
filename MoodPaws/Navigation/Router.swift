@@ -11,13 +11,22 @@ protocol MainRouter {
     var assemblyBuilder: AssemblyBuilder? { get set }
 }
 
-protocol IRouter: MainRouter {
-    func showInitialVC()
-    func showMainPageVC()
-    func popToRoot()
+protocol RouterDelegate: AnyObject {
+    func refreshViewModel()
 }
 
+protocol IRouter: MainRouter {
+    var delegate: RouterDelegate? { get set }
+    func showInitialVC()
+    func showMainPageVC()
+    func showCurrentMoodCreatorVC(with model: CurrentMoodCreatorModel)
+    func popToRoot()
+    func dismissAndRefreshTopViewController()
+}
+
+
 class Router: IRouter{
+    weak var delegate: RouterDelegate?
     var navigationController: UINavigationController?
     
     var assemblyBuilder: AssemblyBuilder?
@@ -38,6 +47,24 @@ class Router: IRouter{
         if let navigationController = navigationController {
             guard let mainPageVC = assemblyBuilder?.createMainPageVC(router: self) else { return }
             navigationController.viewControllers = [mainPageVC]
+        }
+    }
+
+    func showCurrentMoodCreatorVC(with model: CurrentMoodCreatorModel) {
+        if let navigationController = navigationController {
+            guard let currentMoodCreatorVC = assemblyBuilder?.createCurrentMoodCreatorVC(router: self, model: model) else {
+                return
+            }
+            currentMoodCreatorVC.modalPresentationStyle = .formSheet
+            navigationController.present(currentMoodCreatorVC, animated: true)
+        }
+    }
+    
+    func dismissAndRefreshTopViewController() {
+        if let navigationController {
+            let modalVC = navigationController.viewControllers.last?.presentedViewController
+            modalVC?.dismiss(animated: true)
+            delegate?.refreshViewModel()
         }
     }
 

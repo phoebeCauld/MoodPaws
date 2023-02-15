@@ -16,16 +16,11 @@ final class NoteCellView: UIView {
         super.init(frame: .zero)
         
         setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setupConstraints()
     }
     
     private func setupView() {
@@ -50,6 +45,8 @@ final class NoteCellView: UIView {
         actionIconView.tintColor = .mpDarkPurple
 
         progressView.backgroundColor = model.isNoteСompleted ? .mpLightGreen : .mpLightGray
+        
+        setNeedsLayout()
     }
 
     private func setupConstraints() {

@@ -14,16 +14,11 @@ final class DayView: UIView {
         super.init(frame: .zero)
         
         setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setupConstraints()
     }
 
     func configure(with dayState: MoodCalendarModel.MoodDay) {
@@ -41,10 +36,10 @@ final class DayView: UIView {
     }
 
     private func configureMoodImageView(with imageName: String?) {
-        moodView.isHidden = imageName == nil
-        guard let moodName = imageName else { return }
-
-        moodView.image = .init(named: moodName)
+        //moodView.isHidden = imageName == nil
+        guard let imageName else { return }
+        
+        moodView.image = .init(named: imageName)
         moodView.contentMode = .scaleAspectFit
     }
 

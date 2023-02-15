@@ -89,3 +89,15 @@ extension Date {
         (DateFormatter.weekdayDateFormatter.string(from: self), DateFormatter.onlyDayDateFormatter.string(from: self))
     }
 }
+
+extension UIImage {
+    func alpha(_ value:CGFloat) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        draw(at: CGPoint.zero, blendMode: .normal, alpha: value)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        guard let newImage else { return self }
+
+        return newImage
+    }
+}

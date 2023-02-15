@@ -3,7 +3,7 @@ import UIKit
 final class MoodCalendarView: UIView {
     private var componentsFactory: IComponentsFactory
 
-    private lazy var titleLable = componentsFactory.makeTitleLabel()
+    private lazy var titleLable = componentsFactory.makeCommonTextLabel()
     private lazy var daysStackView = componentsFactory.makeBaseStackView()
     
     init(componentsFactory: IComponentsFactory) {
@@ -12,27 +12,26 @@ final class MoodCalendarView: UIView {
         super.init(frame: .zero)
         
         setupView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        setupConstraints()
-    }
 
     func configure(with state: MoodCalendarModel) {
-        titleLable.configure(with: .init(title: "Current Week", textColor: .white))
+        titleLable.configure(with: TitleLabelModel(title: "Current Week", textColor: .white))
         configureDaysStackView(with: state.moods)
-       
+        
+        setNeedsLayout()
     }
 
     private func configureDaysStackView(with moods: [MoodCalendarModel.MoodDay]) {
         daysStackView.configure(axis: .horizontal, spacing: 8)
-        daysStackView.arrangedSubviews.forEach{ daysStackView.removeArrangedSubview($0) }
+        daysStackView.arrangedSubviews.forEach{
+            daysStackView.removeArrangedSubview($0)
+            $0.removeFromSuperview()
+        }
         
         let moodDaysViews = moods.map { model in
             let view = DayView(componentsFactory: componentsFactory)
